@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #D9D9D9;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pos.clothify.store.controller.AdminDashboardController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8f6a7e" height="59.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
+      <Label alignment="CENTER" layoutX="164.0" layoutY="12.0" prefHeight="25.0" prefWidth="247.0" text="Admin Dashboard">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1b0310" height="47.0" layoutY="353.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
+      <Label layoutX="235.0" layoutY="367.0" prefHeight="17.0" prefWidth="152.0" text="© 2024 Clothify" textFill="#c7b5bf">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="117.0" layoutY="121.0" onAction="#btnOnActionUserReristration" prefHeight="35.0" prefWidth="366.0" style="-fx-background-color: #290418;" text="User Registration" textFill="#dbb7ca">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="117.0" layoutY="170.0" onAction="#btnOnActionProductCatalog" prefHeight="35.0" prefWidth="366.0" style="-fx-background-color: #290418;" text="Product Catalog" textFill="#dbb7ca">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="117.0" layoutY="218.0" onAction="#btnOnActionSuplierRegistration" prefHeight="35.0" prefWidth="366.0" style="-fx-background-color: #290418;" text="Suplier Registration" textFill="#dbb7ca">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="117.0" layoutY="266.0" onAction="#btnOnActionEmployeeRegistration" prefHeight="35.0" prefWidth="366.0" style="-fx-background-color: #290418;" text="Employee Registration" textFill="#dbb7ca">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>
