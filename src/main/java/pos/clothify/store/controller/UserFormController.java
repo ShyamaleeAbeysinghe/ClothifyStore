@@ -3,10 +3,13 @@ package pos.clothify.store.controller;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
 public class UserFormController {
+    @FXML
+    public TableColumn colRole;
 
     @FXML
     private TableColumn<?, ?> colAddress;
@@ -55,6 +58,9 @@ public class UserFormController {
 
     @FXML
     private JFXTextField txtUserId;
+
+    @FXML
+    public ComboBox combRole;
 
     @FXML
     void btnOnActionAdd(ActionEvent event) {
