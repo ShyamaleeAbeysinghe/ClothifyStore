@@ -4,4 +4,6 @@ import pos.clothify.store.entity.JobRoleEntity;
 import pos.clothify.store.reporsitory.CrudReporsitory;
 
 public interface JobRoleDao extends CrudReporsitory<JobRoleEntity> {
+
+    JobRoleEntity getjobRoleByName(String name);
 }

@@ -1,5 +1,7 @@
 package pos.clothify.store.reporsitory;
 
+import pos.clothify.store.entity.JobRoleEntity;
+
 import java.util.List;
 
 public interface CrudReporsitory<T> extends SuperDao {

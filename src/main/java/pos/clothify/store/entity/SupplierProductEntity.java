@@ -1,9 +1,6 @@
 package pos.clothify.store.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,6 +13,8 @@ import lombok.ToString;
 @Entity
 @Table(name = "Supplie_product")
 public class SupplierProductEntity {
+    @Id
+    private Integer idSupplieProduct;
     @ManyToOne
     @JoinColumn(name = "Supplier_id")
     private SupplierEntity supplier;

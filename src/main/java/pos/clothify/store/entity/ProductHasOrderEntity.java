@@ -13,7 +13,8 @@ import lombok.ToString;
 @Entity
 @Table(name = "Product_has_order")
 public class ProductHasOrderEntity {
-
+    @Id
+    private Integer idProductHasOrder;
     private String Qty;
 
     @ManyToOne
