@@ -3,8 +3,10 @@ package pos.clothify.store.controller;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import pos.clothify.store.model.Employee;
 
 public class EmployeeFormController {
 
@@ -37,6 +39,20 @@ public class EmployeeFormController {
 
     @FXML
     void btnOnActionAdd(ActionEvent event) {
+
+        if(txtEmployeeId==null || txtEmplyeeName==null || txtEmail==null || txtCompany==null){
+            new Alert(Alert.AlertType.ERROR,"Some Fields are empty").show();
+        }else{
+            Employee employee=new Employee(
+                    txtEmployeeId.getText(),
+                    txtEmplyeeName.getText(),
+                    txtEmail.getText(),
+                    txtCompany.getText()
+
+            );
+        }
+
+
 
     }
 

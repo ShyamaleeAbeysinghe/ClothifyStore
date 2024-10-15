@@ -55,37 +55,37 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtUserId" layoutX="132.0" layoutY="72.0" maxHeight="13.0" prefHeight="13.0" prefWidth="182.0" style="-fx-background-color: #693953; -fx-color: white;" unFocusColor="WHITE">
+      <JFXTextField fx:id="txtUserId" layoutX="132.0" layoutY="72.0" maxHeight="13.0" prefHeight="13.0" prefWidth="182.0" style="-fx-background-color: #C7B5BF; -fx-color: white;" unFocusColor="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtEmail" layoutX="132.0" layoutY="275.0" maxHeight="13.0" prefHeight="13.0" prefWidth="182.0" style="-fx-background-color: #693953; -fx-color: white;" unFocusColor="WHITE">
+      <JFXTextField fx:id="txtEmail" layoutX="132.0" layoutY="275.0" maxHeight="13.0" prefHeight="13.0" prefWidth="182.0" style="-fx-background-color: #C7B5BF; -fx-color: white;" unFocusColor="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtContact" layoutX="132.0" layoutY="243.0" maxHeight="13.0" prefHeight="13.0" prefWidth="182.0" style="-fx-background-color: #693953; -fx-color: white;" unFocusColor="WHITE">
+      <JFXTextField fx:id="txtContact" layoutX="132.0" layoutY="243.0" maxHeight="13.0" prefHeight="13.0" prefWidth="182.0" style="-fx-background-color: #C7B5BF; -fx-color: white;" unFocusColor="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtLastName" layoutX="132.0" layoutY="141.0" maxHeight="13.0" prefHeight="13.0" prefWidth="182.0" style="-fx-background-color: #693953; -fx-color: white;" unFocusColor="WHITE">
+      <JFXTextField fx:id="txtLastName" layoutX="132.0" layoutY="141.0" maxHeight="13.0" prefHeight="13.0" prefWidth="182.0" style="-fx-background-color: #C7B5BF; -fx-color: white;" unFocusColor="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtNIC" layoutX="132.0" layoutY="210.0" maxHeight="13.0" prefHeight="13.0" prefWidth="182.0" style="-fx-background-color: #693953; -fx-color: white;" unFocusColor="WHITE">
+      <JFXTextField fx:id="txtNIC" layoutX="132.0" layoutY="210.0" maxHeight="13.0" prefHeight="13.0" prefWidth="182.0" style="-fx-background-color: #C7B5BF; -fx-color: white;" unFocusColor="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtFirstName" layoutX="132.0" layoutY="106.0" maxHeight="13.0" prefHeight="13.0" prefWidth="182.0" style="-fx-background-color: #693953; -fx-color: white;" unFocusColor="WHITE">
+      <JFXTextField fx:id="txtFirstName" layoutX="132.0" layoutY="106.0" maxHeight="13.0" prefHeight="13.0" prefWidth="182.0" style="-fx-background-color: #C7B5BF; -fx-color: white;" unFocusColor="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtAddress" layoutX="132.0" layoutY="176.0" maxHeight="13.0" prefHeight="13.0" prefWidth="182.0" style="-fx-background-color: #693953; -fx-color: white;" unFocusColor="WHITE">
+      <JFXTextField fx:id="txtAddress" layoutX="132.0" layoutY="176.0" maxHeight="13.0" prefHeight="13.0" prefWidth="182.0" style="-fx-background-color: #C7B5BF; -fx-color: white;" unFocusColor="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -111,16 +111,16 @@
          </font>
       </JFXButton>
       <TableView fx:id="tblUser" layoutX="8.0" layoutY="392.0" prefHeight="179.0" prefWidth="586.0" style="-fx-color: #C7B5BF; -fx-background-color: #C7B5BF;">
-        <columns>
-          <TableColumn fx:id="colUserId" prefWidth="75.0" text="User ID" />
-          <TableColumn fx:id="colFirstName" prefWidth="85.0" text="First Name" />
+         <columns>
+            <TableColumn fx:id="colUserId" prefWidth="75.0" text="User ID" />
+            <TableColumn fx:id="colFirstName" prefWidth="85.0" text="First Name" />
             <TableColumn fx:id="colLastName" prefWidth="77.0" text="Last Name" />
             <TableColumn fx:id="colAddress" prefWidth="94.0" text="Address" />
             <TableColumn fx:id="colNIC" prefWidth="67.0" text="NIC" />
             <TableColumn fx:id="colContact" prefWidth="74.0" text="Contact" />
             <TableColumn fx:id="colEmail" minWidth="6.0" prefWidth="54.0" text="Email" />
             <TableColumn fx:id="colRole" prefWidth="56.0" text="Role" />
-        </columns>
+         </columns>
       </TableView>
       <JFXButton layoutX="216.0" layoutY="580.0" onAction="#btnOnActionReload" prefHeight="30.0" prefWidth="151.0" style="-fx-background-color: #290418;" text="Reload" textFill="#c7b5bf">
          <font>
@@ -143,6 +143,6 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <ComboBox fx:id="combRole" layoutX="132.0" layoutY="311.0" prefHeight="26.0" prefWidth="182.0" promptText="Job Role" style="-fx-background-color: #693953;" />
+      <ComboBox fx:id="combRole" layoutX="132.0" layoutY="311.0" prefHeight="26.0" prefWidth="182.0" promptText="Job Role" style="-fx-background-color: #C7B5BF;" />
    </children>
 </AnchorPane>

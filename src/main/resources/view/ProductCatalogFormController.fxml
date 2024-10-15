@@ -1,11 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pos.clothify.store.controller.ProductCatalogFormController">
+<AnchorPane prefHeight="640.0" prefWidth="600.0" style="-fx-background-color: #D9D9D9;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pos.clothify.store.controller.ProductCatalogFormController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8f6a7e" height="51.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
+      <Label alignment="CENTER" layoutX="118.0" layoutY="8.0" prefHeight="35.0" prefWidth="360.0" text="Product Catalog Form" textFill="#290418">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="25.0" layoutY="76.0" prefHeight="17.0" prefWidth="114.0" text="Product Id :" textFill="#1b0310">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="25.0" layoutY="112.0" prefHeight="17.0" prefWidth="114.0" text="Product Name :" textFill="#1b0310">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="25.0" layoutY="217.0" prefHeight="17.0" prefWidth="114.0" text="QTY On Hand :" textFill="#1b0310">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="25.0" layoutY="182.0" prefHeight="17.0" prefWidth="114.0" text="Price :" textFill="#1b0310">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="25.0" layoutY="147.0" prefHeight="17.0" prefWidth="114.0" text="Size :" textFill="#1b0310">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="25.0" layoutY="249.0" prefHeight="17.0" prefWidth="114.0" text="Supplier Name :" textFill="#1b0310">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtProductId" layoutX="154.0" layoutY="73.0" prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #C7B5BF;" />
+      <ComboBox fx:id="comdSupplierName" layoutX="154.0" layoutY="246.0" prefHeight="25.0" prefWidth="172.0" promptText="Supplier" style="-fx-background-color: #C7B5BF;" />
+      <JFXButton layoutX="14.0" layoutY="294.0" onAction="#btnOnActionAdd" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: #290418;" text="Add" textFill="#c7b5bf">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="217.0" layoutY="546.0" onAction="#btnOnActionReload" prefHeight="25.0" prefWidth="163.0" style="-fx-background-color: #290418;" text="Reload" textFill="#c7b5bf">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="96.0" layoutY="294.0" onAction="#btnOnActionSearch" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: #290418;" text="Search" textFill="#c7b5bf">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="259.0" layoutY="294.0" onAction="#btnOnActionDelete" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: #290418;" text="Delete" textFill="#c7b5bf">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXTextField fx:id="txtProductName" layoutX="154.0" layoutY="109.0" prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #C7B5BF;" />
+      <JFXTextField fx:id="txtQtyOnHand" layoutX="154.0" layoutY="214.0" prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #C7B5BF;" />
+      <JFXTextField fx:id="txtPrice" layoutX="154.0" layoutY="179.0" prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #C7B5BF;" />
+      <JFXTextField fx:id="txtSize" layoutX="154.0" layoutY="144.0" prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #C7B5BF;" />
+      <TableView fx:id="tblProduct" layoutX="7.0" layoutY="336.0" prefHeight="200.0" prefWidth="586.0" style="-fx-background-color: #C7B5BF; -fx-color: #C7B5BF;">
+         <columns>
+            <TableColumn fx:id="colProductId" prefWidth="75.0" text="Product Id" />
+            <TableColumn fx:id="colProductName" prefWidth="118.0" text="Product Name" />
+            <TableColumn fx:id="colSize" prefWidth="69.0" text="Size" />
+            <TableColumn fx:id="colPrice" prefWidth="65.0" text="Price" />
+            <TableColumn fx:id="colQtyOnHand" prefWidth="97.0" text="QTY On Hand" />
+            <TableColumn fx:id="colSupplierName" prefWidth="150.0" text="Supplier Name" />
+         </columns>
+      </TableView>
+      <JFXButton layoutX="184.0" layoutY="294.0" onAction="#btnOnActionUpdate" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: #290418;" text="Update" textFill="#c7b5bf">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1b0310" height="51.0" layoutY="598.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
+      <Label alignment="CENTER" layoutX="175.0" layoutY="615.0" prefHeight="17.0" prefWidth="216.0" text="© 2024 Clothify" textFill="#c7b5bf">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="251.0" fitWidth="241.0" layoutX="342.0" layoutY="69.0" pickOnBounds="true">
+         <image>
+            <Image url="@../image/add-order.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
