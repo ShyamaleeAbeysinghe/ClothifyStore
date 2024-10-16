@@ -32,11 +32,12 @@ public class JobRoleDaoImpl implements JobRoleDao {
     public List<JobRoleEntity> findAll() {
 
         Session session = HibernateUtil.getSession();
-        session.getTransaction().begin();
         CriteriaQuery<JobRoleEntity> query = session.getCriteriaBuilder().createQuery(JobRoleEntity.class);
         query.from(JobRoleEntity.class);
 
-        return session.createQuery(query).getResultList();
+        List<JobRoleEntity> resultList = session.createQuery(query).getResultList();
+        session.close();
+        return resultList;
 
 
     }

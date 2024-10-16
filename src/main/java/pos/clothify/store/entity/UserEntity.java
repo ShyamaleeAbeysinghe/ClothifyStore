@@ -20,7 +20,7 @@ public class UserEntity {
     private String Address;
     private String NIC;
     private String Contact;
-    private String Username;
+    private String UserEmail;
     private String Password;
     private Integer Status;
 

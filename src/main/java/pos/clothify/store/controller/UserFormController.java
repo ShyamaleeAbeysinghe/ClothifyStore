@@ -11,19 +11,25 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import pos.clothify.store.entity.JobRoleEntity;
 import pos.clothify.store.model.User;
 import pos.clothify.store.reporsitory.DaoFactory;
+import pos.clothify.store.reporsitory.SuperDao;
 import pos.clothify.store.reporsitory.custom.JobRoleDao;
+import pos.clothify.store.reporsitory.custom.UserDao;
 import pos.clothify.store.service.SuperFactory;
 import pos.clothify.store.service.SuperService;
 import pos.clothify.store.service.custom.UserService;
+import pos.clothify.store.service.custom.impl.UserSeviceImpl;
 import pos.clothify.store.util.DaoType;
 import pos.clothify.store.util.ServiceType;
 
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class UserFormController implements Initializable {
     @FXML
@@ -54,7 +60,7 @@ public class UserFormController implements Initializable {
     private TableColumn<?, ?> colUserId;
 
     @FXML
-    private TableView<?> tblUser;
+    private TableView<User> tblUser;
 
     @FXML
     private JFXTextField txtAddress;
@@ -82,67 +88,108 @@ public class UserFormController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ObservableList<String> jobRoleNameList= FXCollections.observableArrayList();
-        JobRoleDao jobRoleDao =DaoFactory.getInstance().getDao(DaoType.JOBROLE);
-        List<JobRoleEntity> all = jobRoleDao.findAll();
 
-        all.forEach(jobRoleEntity -> {
-            jobRoleNameList.add(jobRoleEntity.getJobRoleName());
-        });
+        colUserId.setCellValueFactory(new PropertyValueFactory<>("userId"));
+        colFirstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        colLastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+        colContact.setCellValueFactory(new PropertyValueFactory<>("contact"));
+        colNIC.setCellValueFactory(new PropertyValueFactory<>("nic"));
+        colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        colRole.setCellValueFactory(new PropertyValueFactory<>("role"));
 
-        combRole.setItems(jobRoleNameList);
+        loadTable();
+
+        UserService service = SuperFactory.getInstance().getServiceType(ServiceType.USER);
+
+        combRole.setItems(service.getJobRoleName());
+
+        Integer maxId = service.findMaxId();
+       if(maxId==null){
+           maxId=0;
+       }
+        maxId++;
+
+
+        txtUserId.setText(Integer.toString(maxId));
+
+
     }
 
+    private void loadTable() {
+        UserService service = SuperFactory.getInstance().getServiceType(ServiceType.USER);
+        tblUser.setItems(service.getAllUsers());
+    }
 
 
     @FXML
     void btnOnActionAdd(ActionEvent event) {
-        UserService userService= SuperFactory.getInstance().getServiceType(ServiceType.USER);
+        UserService service= SuperFactory.getInstance().getServiceType(ServiceType.USER);
 
-        if(txtUserId==null || txtFirstName==null || txtLastName==null || txtAddress==null || txtNIC==null || txtContact==null || txtEmail==null || combRole==null){
-            new Alert(Alert.AlertType.ERROR,"Some Fields are empty").show();
-        }else {
-            User user=new User(
-                    txtUserId.getText(),
-                    txtFirstName.getText(),
-                    txtLastName.getText(),
-                    txtAddress.getText(),
-                    txtNIC.getText(),
-                    txtContact.getText(),
-                    txtEmail.getText(),
-                    (String) combRole.getValue()
-            );
 
-            if(userService.addUser(user)){
-                new Alert(Alert.AlertType.INFORMATION).show();
-            }else{
-                new Alert(Alert.AlertType.ERROR).show();
-            }
 
-            System.out.println(user);
+        User user=new User(
+                txtUserId.getText(),
+                txtFirstName.getText(),
+                txtLastName.getText(),
+                txtAddress.getText(),
+                txtNIC.getText(),
+                txtContact.getText(),
+                txtEmail.getText(),
+                (String) combRole.getValue()
+        );
+
+        if(service.addUser(user)){
+            clear();
+            loadTable();
+            Integer maxId = service.findMaxId();
+            maxId++;
+            txtUserId.setText(Integer.toString(maxId));
+
         }
+        System.out.println(user);
 
 
 
+    }
+
+    private void clear() {
+        txtUserId.setText("");
+        txtFirstName.setText("");
+        txtLastName.setText("");
+        txtAddress.setText("");
+        txtNIC.setText("");
+        txtEmail.setText("");
+        txtContact.setText("");
+        combRole.setValue("");
     }
 
     @FXML
     void btnOnActionDelete(ActionEvent event) {
-
-
-
-
-
-
     }
 
     @FXML
     void btnOnActionReload(ActionEvent event) {
+        loadTable();
 
     }
 
     @FXML
     void btnOnActionSearch(ActionEvent event) {
+        UserService service= SuperFactory.getInstance().getServiceType(ServiceType.USER);
+        User user = service.findByEmail(txtEmail.getText());
+
+        if(user!=null){
+            txtUserId.setText(user.getUserId());
+            txtFirstName.setText(user.getFirstName());
+            txtLastName.setText(user.getLastName());
+            txtAddress.setText(user.getAddress());
+            txtNIC.setText(user.getNic());
+            txtContact.setText(user.getContact());
+            combRole.setValue(user.getRole());
+        }
+
+
 
     }
 
