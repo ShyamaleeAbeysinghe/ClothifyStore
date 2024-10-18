@@ -3,12 +3,21 @@ package pos.clothify.store.controller;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import pos.clothify.store.model.Employee;
+import pos.clothify.store.service.SuperFactory;
+import pos.clothify.store.service.SuperService;
+import pos.clothify.store.service.custom.EmployeeSrevice;
+import pos.clothify.store.util.ServiceType;
 
-public class EmployeeFormController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class EmployeeFormController implements Initializable {
 
     @FXML
     private TableColumn<?, ?> colCompany;
@@ -37,23 +46,53 @@ public class EmployeeFormController {
     @FXML
     private JFXTextField txtEmplyeeName;
 
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        colEmployeeId.setCellValueFactory(new PropertyValueFactory<>("employeeId"));
+        colEmployeeName.setCellValueFactory(new PropertyValueFactory<>("employeeName"));
+        colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        colCompany.setCellValueFactory(new PropertyValueFactory<>("company"));
+
+
+
+        EmployeeSrevice service = SuperFactory.getInstance().getServiceType(ServiceType.EMPLOYEE);
+        Integer maxId = service.findByEmployeeMaxId();
+        if(maxId==null){
+            maxId=0;
+        }
+        maxId++;
+
+        txtEmployeeId.setText(Integer.toString(maxId));
+
+    }
+
     @FXML
     void btnOnActionAdd(ActionEvent event) {
+        EmployeeSrevice service = SuperFactory.getInstance().getServiceType(ServiceType.EMPLOYEE);
 
-        if(txtEmployeeId==null || txtEmplyeeName==null || txtEmail==null || txtCompany==null){
-            new Alert(Alert.AlertType.ERROR,"Some Fields are empty").show();
-        }else{
-            Employee employee=new Employee(
+        Employee employee=new Employee(
                     txtEmployeeId.getText(),
                     txtEmplyeeName.getText(),
                     txtEmail.getText(),
                     txtCompany.getText()
 
             );
+
+        if(service.addEmployee(employee)){
+            clear();
         }
 
 
 
+
+    }
+
+    private void clear() {
+        txtEmployeeId.setText("");
+        txtEmplyeeName.setText("");
+        txtEmail.setText("");
+        txtCompany.setText("");
     }
 
     @FXML

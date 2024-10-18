@@ -8,5 +8,7 @@ public interface UserDao extends CrudReporsitory<UserEntity> {
 
     Integer findBymaxId();
 
+    UserEntity login(String userEmail,String password);
+
 
 }

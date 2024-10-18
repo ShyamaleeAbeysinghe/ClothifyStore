@@ -25,6 +25,7 @@ public class SupplierEntity {
     private String SupplierName;
     private String Company;
     private String Email;
+    private Integer Status;
 
 @OneToMany(mappedBy = "supplier")
 private Set<SupplierProductEntity>supplierProductEntity;

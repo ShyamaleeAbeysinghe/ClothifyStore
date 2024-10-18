@@ -24,8 +24,6 @@ public class JobRoleEntity {
     private String JobRoleName;
     private Integer Status;
 
-    @OneToMany(mappedBy = "JobRole")
-    private Set<EmployeeEntity>employeeEntity;
 
     @OneToMany(mappedBy = "jobRoleEntity")
     private  Set<UserEntity>userEntity;

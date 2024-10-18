@@ -9,4 +9,8 @@ public interface CrudReporsitory<T> extends SuperDao {
     boolean update(T entity);
     List <T> findAll();
 
+
+
+
+
 }

@@ -4,4 +4,7 @@ import pos.clothify.store.entity.SupplierEntity;
 import pos.clothify.store.reporsitory.CrudReporsitory;
 
 public interface SupplierDao extends CrudReporsitory<SupplierEntity> {
+    Integer findByMaxId();
+
+    SupplierEntity findBySupplierEmail(String email);
 }

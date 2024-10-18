@@ -42,9 +42,9 @@ public class UserSeviceImpl implements UserService {
             return false;
         } else {
             UserDao userDao = DaoFactory.getInstance().getDao(DaoType.USER);
-            UserEntity userEmail = userDao.findByUserEmail(user.getEmail());
+            UserEntity userEntityGet = userDao.findByUserEmail(user.getEmail());
 
-            if (userEmail == null) {
+            if (userEntityGet == null) {
                 JobRoleDao jobRoleDao = DaoFactory.getInstance().getDao(DaoType.JOBROLE);
                 JobRoleEntity jobRoleEntity = jobRoleDao.getjobRoleByName(user.getRole());
 
@@ -115,6 +115,51 @@ public class UserSeviceImpl implements UserService {
         }
         return new ModelMapper().map(userEntity, User.class);
 
+
+    }
+
+    @Override
+    public boolean updateUser(User user) {
+        JobRoleDao jobRoleDao = DaoFactory.getInstance().getDao(DaoType.JOBROLE);
+        UserDao dao = DaoFactory.getInstance().getDao(DaoType.USER);
+        UserEntity userEntity = dao.findByUserEmail(user.getEmail());
+        if(userEntity==null){
+            new Alert(Alert.AlertType.ERROR, "Can not found User").show();
+            return false;
+        }else{
+            userEntity.setFirstName(user.getFirstName());
+            userEntity.setLastName(user.getLastName());
+            userEntity.setAddress(user.getAddress());
+            userEntity.setContact(user.getContact());
+            userEntity.setNIC(user.getNic());
+            userEntity.setJobRoleEntity(jobRoleDao.getjobRoleByName(user.getRole()));
+
+            dao.update(userEntity);
+            new Alert(Alert.AlertType.INFORMATION, "Update Succses").show();
+
+
+            return true;
+        }
+
+
+    }
+
+    @Override
+    public boolean deleteUser(String email) {
+
+        JobRoleDao jobRoleDao = DaoFactory.getInstance().getDao(DaoType.JOBROLE);
+        UserDao dao = DaoFactory.getInstance().getDao(DaoType.USER);
+        UserEntity userEntity = dao.findByUserEmail(email);
+
+        if(userEntity==null){
+            new Alert(Alert.AlertType.ERROR, "Can not found User").show();
+            return false;
+        }else{
+            userEntity.setStatus(0);
+            dao.update(userEntity);
+            new Alert(Alert.AlertType.INFORMATION, "Delete Succses").show();
+            return true;
+        }
 
     }
 

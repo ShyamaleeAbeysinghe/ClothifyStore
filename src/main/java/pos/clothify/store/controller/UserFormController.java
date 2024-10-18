@@ -166,6 +166,11 @@ public class UserFormController implements Initializable {
 
     @FXML
     void btnOnActionDelete(ActionEvent event) {
+        UserService service= SuperFactory.getInstance().getServiceType(ServiceType.USER);
+        if(service.deleteUser(txtEmail.getText())){
+            clear();
+            loadTable();
+        }
     }
 
     @FXML
@@ -186,7 +191,11 @@ public class UserFormController implements Initializable {
             txtAddress.setText(user.getAddress());
             txtNIC.setText(user.getNic());
             txtContact.setText(user.getContact());
-            combRole.setValue(user.getRole());
+            combRole.setValue(user.getRole()
+
+            );
+
+
         }
 
 
@@ -195,6 +204,25 @@ public class UserFormController implements Initializable {
 
     @FXML
     void btnOnActionUpdate(ActionEvent event) {
+        UserService service= SuperFactory.getInstance().getServiceType(ServiceType.USER);
+
+
+
+        User user=new User(
+                txtUserId.getText(),
+                txtFirstName.getText(),
+                txtLastName.getText(),
+                txtAddress.getText(),
+                txtNIC.getText(),
+                txtContact.getText(),
+                txtEmail.getText(),
+                (String) combRole.getValue()
+        );
+
+        if(service.updateUser(user)){
+            clear();
+            loadTable();
+        }
 
     }
 

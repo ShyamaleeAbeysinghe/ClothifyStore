@@ -25,14 +25,22 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public boolean update(UserEntity entity) {
-        return false;
+        Session session = HibernateUtil.getSession();
+        session.beginTransaction();
+        session.merge(entity);
+        session.getTransaction().commit();
+        session.close();
+
+        return true;
     }
 
     @Override
     public List<UserEntity> findAll() {
         Session session = HibernateUtil.getSession();
         CriteriaQuery<UserEntity> query = session.getCriteriaBuilder().createQuery(UserEntity.class);
-        query.from(UserEntity.class);
+        Root<UserEntity> userEntityRoot = query.from(UserEntity.class);
+        query.select(userEntityRoot);
+        query.where(session.getCriteriaBuilder().equal(userEntityRoot.get("Status"),1));
 
         List<UserEntity> resultList = session.createQuery(query).getResultList();
         session.close();
@@ -60,5 +68,17 @@ public class UserDaoImpl implements UserDao {
 
         return (Integer)session.createQuery(query).getSingleResultOrNull();
 
+    }
+
+    @Override
+    public UserEntity login(String userEmail,String password) {
+        Session session = HibernateUtil.getSession();
+        CriteriaQuery<UserEntity> query = session.getCriteriaBuilder().createQuery(UserEntity.class);
+        Root<UserEntity> userEntityRoot = query.from(UserEntity.class);
+        query.select(userEntityRoot);
+        query.where(session.getCriteriaBuilder().equal(userEntityRoot.get("UserEmail"),userEmail),session.getCriteriaBuilder().equal(userEntityRoot.get("Password"),password),session.getCriteriaBuilder().equal(userEntityRoot.get("Status"),1));
+
+
+        return session.createQuery(query).getSingleResultOrNull();
     }
 }

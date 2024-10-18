@@ -24,25 +24,25 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="37.0" layoutY="114.0" prefHeight="19.0" prefWidth="134.0" text="Supplier Name      :" textFill="#1b0310">
+      <Label layoutX="38.0" layoutY="148.0" prefHeight="19.0" prefWidth="134.0" text="Supplier Name      :" textFill="#1b0310">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="37.0" layoutY="191.0" prefHeight="17.0" prefWidth="124.0" text="Emali            :" textFill="#1b0310">
+      <Label layoutX="38.0" layoutY="111.0" prefHeight="17.0" prefWidth="124.0" text="Emali            :" textFill="#1b0310">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="37.0" layoutY="152.0" prefHeight="17.0" prefWidth="124.0" text="Company            :" textFill="#1b0310">
+      <Label layoutX="38.0" layoutY="184.0" prefHeight="17.0" prefWidth="124.0" text="Company            :" textFill="#1b0310">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtSupplierId" layoutX="170.0" layoutY="73.0" prefHeight="25.0" prefWidth="176.0" style="-fx-background-color: #693953;" />
-      <JFXTextField fx:id="txtSupplierName" layoutX="170.0" layoutY="111.0" prefHeight="25.0" prefWidth="176.0" style="-fx-background-color: #693953;" />
-      <JFXTextField fx:id="txtEmail" layoutX="170.0" layoutY="188.0" prefHeight="25.0" prefWidth="176.0" style="-fx-background-color: #693953;" />
-      <JFXTextField fx:id="txtCompany" layoutX="170.0" layoutY="149.0" prefHeight="25.0" prefWidth="176.0" style="-fx-background-color: #693953;" />
+      <JFXTextField fx:id="txtSupplierId" layoutX="170.0" layoutY="73.0" prefHeight="25.0" prefWidth="176.0" style="-fx-background-color: #C7B5BF;" />
+      <JFXTextField fx:id="txtSupplierName" layoutX="171.0" layoutY="145.0" prefHeight="25.0" prefWidth="176.0" style="-fx-background-color: #C7B5BF;" />
+      <JFXTextField fx:id="txtEmail" layoutX="171.0" layoutY="108.0" prefHeight="25.0" prefWidth="176.0" style="-fx-background-color: #C7B5BF;" />
+      <JFXTextField fx:id="txtCompany" layoutX="171.0" layoutY="181.0" prefHeight="25.0" prefWidth="176.0" style="-fx-background-color: #C7B5BF;" />
       <JFXButton layoutX="22.0" layoutY="243.0" onAction="#btnOnActionAdd" prefHeight="25.0" prefWidth="66.0" style="-fx-background-color: #1B0310;" text="Add" textFill="#c7b5bf">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -76,7 +76,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <ImageView fitHeight="246.0" fitWidth="221.0" layoutX="363.0" layoutY="58.0" pickOnBounds="true">
+      <ImageView fitHeight="248.0" fitWidth="222.0" layoutX="363.0" layoutY="56.0" pickOnBounds="true">
          <image>
             <Image url="@../image/suplier.jpg" />
          </image>

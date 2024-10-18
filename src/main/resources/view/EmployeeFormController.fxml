@@ -39,10 +39,10 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtEmployeeId" layoutX="148.0" layoutY="81.0" prefHeight="25.0" prefWidth="167.0" style="-fx-background-color: #693953;" />
-      <JFXTextField fx:id="txtEmail" layoutX="148.0" layoutY="111.0" prefHeight="25.0" prefWidth="167.0" style="-fx-background-color: #693953;" />
-      <JFXTextField fx:id="txtCompany" layoutX="148.0" layoutY="178.0" prefHeight="25.0" prefWidth="167.0" style="-fx-background-color: #693953;" />
-      <JFXTextField fx:id="txtEmplyeeName" layoutX="148.0" layoutY="144.0" prefHeight="25.0" prefWidth="167.0" style="-fx-background-color: #693953;" />
+      <JFXTextField fx:id="txtEmployeeId" layoutX="148.0" layoutY="81.0" prefHeight="25.0" prefWidth="167.0" style="-fx-background-color: #C7B5BF;" />
+      <JFXTextField fx:id="txtEmail" layoutX="148.0" layoutY="111.0" prefHeight="25.0" prefWidth="167.0" style="-fx-background-color: #C7B5BF;" />
+      <JFXTextField fx:id="txtCompany" layoutX="148.0" layoutY="178.0" prefHeight="25.0" prefWidth="167.0" style="-fx-background-color: #C7B5BF;" />
+      <JFXTextField fx:id="txtEmplyeeName" layoutX="148.0" layoutY="144.0" prefHeight="25.0" prefWidth="167.0" style="-fx-background-color: #C7B5BF;" />
       <TableView fx:id="tblEmployee" layoutX="14.0" layoutY="263.0" prefHeight="182.0" prefWidth="573.0" style="-fx-color: #C7B5BF; -fx-background-color: #C7B5BF;">
         <columns>
           <TableColumn fx:id="colEmployeeId" prefWidth="109.0" text="Employee ID" />

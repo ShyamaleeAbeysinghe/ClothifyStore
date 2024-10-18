@@ -20,7 +20,5 @@ public class EmployeeEntity {
     private String Email;
     private Integer Status;
 
-    @ManyToOne
-    @JoinColumn(name="JobRole_id")
-    private JobRoleEntity JobRole;
+
 }
