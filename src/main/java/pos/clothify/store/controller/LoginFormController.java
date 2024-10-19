@@ -5,6 +5,7 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
@@ -46,8 +47,10 @@ public class LoginFormController {
                 Stage stage=new Stage();
 
                 try {
-                    System.out.println("hereeeeeeeee");
-                    stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/AdminDashboardFormController.fxml"))));
+                    FXMLLoader loads = new FXMLLoader(getClass().getResource("/view/AdminDashboardFormController.fxml"));
+                    loads.setController(new AdminDashboardController());
+                    Parent load = loads.load();
+                    stage.setScene(new Scene(load));
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -57,7 +60,10 @@ public class LoginFormController {
                 Stage stage=new Stage();
 
                 try {
-                    stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/UserDashboardFormController.fxml"))));
+                    FXMLLoader load = new FXMLLoader(getClass().getResource("/view/UserDashboardFormController.fxml"));
+                    load.setController(new UserDashboardController(txtUsername.getText()));
+                    Parent parent = load.load();
+                    stage.setScene(new Scene(parent));
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }

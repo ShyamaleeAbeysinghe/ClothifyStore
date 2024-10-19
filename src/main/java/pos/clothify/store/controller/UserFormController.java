@@ -136,7 +136,8 @@ public class UserFormController implements Initializable {
                 txtNIC.getText(),
                 txtContact.getText(),
                 txtEmail.getText(),
-                (String) combRole.getValue()
+                (String) combRole.getValue(),
+                null
         );
 
         if(service.addUser(user)){
@@ -216,7 +217,8 @@ public class UserFormController implements Initializable {
                 txtNIC.getText(),
                 txtContact.getText(),
                 txtEmail.getText(),
-                (String) combRole.getValue()
+                (String) combRole.getValue(),
+                null
         );
 
         if(service.updateUser(user)){

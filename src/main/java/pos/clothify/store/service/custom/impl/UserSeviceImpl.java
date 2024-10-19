@@ -133,6 +133,9 @@ public class UserSeviceImpl implements UserService {
             userEntity.setContact(user.getContact());
             userEntity.setNIC(user.getNic());
             userEntity.setJobRoleEntity(jobRoleDao.getjobRoleByName(user.getRole()));
+            if(user.getPassword()!=null){
+                userEntity.setPassword(user.getPassword());
+            }
 
             dao.update(userEntity);
             new Alert(Alert.AlertType.INFORMATION, "Update Succses").show();

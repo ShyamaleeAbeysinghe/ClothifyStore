@@ -21,6 +21,7 @@ public class SuperFactory {
             case EMPLOYEE:return (T)new EmployeeServiceImpl();
             case SUPPLIER:return (T)new SupplierServiceImpl();
             case VIEWODER:return (T)new ViewOrderServiceImpl();
+
         }
         return null;
     }

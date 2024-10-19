@@ -10,6 +10,7 @@ import java.io.IOException;
 
 public class AdminDashboardController {
 
+
     @FXML
     void btnOnActionEmployeeRegistration(ActionEvent event) {
         Stage stage=new Stage();

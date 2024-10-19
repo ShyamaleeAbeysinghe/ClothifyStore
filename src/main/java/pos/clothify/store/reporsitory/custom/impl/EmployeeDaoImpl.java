@@ -6,6 +6,7 @@ import jakarta.persistence.criteria.Root;
 import org.hibernate.Session;
 import pos.clothify.store.entity.EmployeeEntity;
 import pos.clothify.store.entity.SupplierEntity;
+import pos.clothify.store.entity.UserEntity;
 import pos.clothify.store.reporsitory.custom.EmployeeDao;
 import pos.clothify.store.util.HibernateUtil;
 
@@ -25,12 +26,29 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
     @Override
     public boolean update(EmployeeEntity entity) {
-        return false;
+
+        Session session = HibernateUtil.getSession();
+        session.beginTransaction();
+        session.merge(entity);
+        session.getTransaction().commit();
+        session.close();
+
+        return true;
     }
 
     @Override
     public List<EmployeeEntity> findAll() {
-        return List.of();
+
+        Session session = HibernateUtil.getSession();
+        CriteriaQuery<EmployeeEntity> query = session.getCriteriaBuilder().createQuery(EmployeeEntity.class);
+        Root<EmployeeEntity> employeeEntityRoot = query.from(EmployeeEntity.class);
+        query.select(employeeEntityRoot);
+        query.where(session.getCriteriaBuilder().equal(employeeEntityRoot.get("Status"),1));
+
+        List<EmployeeEntity> resultList = session.createQuery(query).getResultList();
+        session.close();
+
+        return resultList;
     }
 
     @Override
@@ -44,7 +62,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
     }
 
     @Override
-    public EmployeeEntity findBySupplierEmail(String email) {
+    public EmployeeEntity findByEmployeeEmail(String email) {
         Session session = HibernateUtil.getSession();
         CriteriaQuery<EmployeeEntity> query = session.getCriteriaBuilder().createQuery(EmployeeEntity.class);
         Root<EmployeeEntity> employeeEntityRoot = query.from(EmployeeEntity.class);

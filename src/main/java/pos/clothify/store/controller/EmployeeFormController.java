@@ -32,7 +32,7 @@ public class EmployeeFormController implements Initializable {
     private TableColumn<?, ?> colEmployeeName;
 
     @FXML
-    private TableView<?> tblEmployee;
+    private TableView<Employee> tblEmployee;
 
     @FXML
     private JFXTextField txtCompany;
@@ -54,7 +54,7 @@ public class EmployeeFormController implements Initializable {
         colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         colCompany.setCellValueFactory(new PropertyValueFactory<>("company"));
 
-
+        loadTable();
 
         EmployeeSrevice service = SuperFactory.getInstance().getServiceType(ServiceType.EMPLOYEE);
         Integer maxId = service.findByEmployeeMaxId();
@@ -65,6 +65,11 @@ public class EmployeeFormController implements Initializable {
 
         txtEmployeeId.setText(Integer.toString(maxId));
 
+    }
+
+    private void loadTable() {
+        EmployeeSrevice service = SuperFactory.getInstance().getServiceType(ServiceType.EMPLOYEE);
+        tblEmployee.setItems(service.getAllEmployee());
     }
 
     @FXML
@@ -81,6 +86,7 @@ public class EmployeeFormController implements Initializable {
 
         if(service.addEmployee(employee)){
             clear();
+            loadTable();
         }
 
 
@@ -97,21 +103,50 @@ public class EmployeeFormController implements Initializable {
 
     @FXML
     void btnOnActionDelete(ActionEvent event) {
+        EmployeeSrevice service = SuperFactory.getInstance().getServiceType(ServiceType.EMPLOYEE);
+
+        if(service.deleteEmployee(txtEmail.getText())){
+            clear();
+            loadTable();
+        }
 
     }
 
     @FXML
     void btnOnActionReload(ActionEvent event) {
+        loadTable();
 
     }
 
     @FXML
     void btnOnActionSearch(ActionEvent event) {
+        EmployeeSrevice service = SuperFactory.getInstance().getServiceType(ServiceType.EMPLOYEE);
+        Employee employee = service.findByEmail(txtEmail.getText());
+
+        if(employee!=null){
+            txtEmployeeId.setText(employee.getEmployeeId());
+            txtEmplyeeName.setText(employee.getEmployeeName());
+            txtCompany.setText(employee.getCompany());
+        }
 
     }
 
     @FXML
     void btnOnActionUpdate(ActionEvent event) {
+        EmployeeSrevice service = SuperFactory.getInstance().getServiceType(ServiceType.EMPLOYEE);
+
+        Employee employee=new Employee(
+                txtEmployeeId.getText(),
+                txtEmplyeeName.getText(),
+                txtEmail.getText(),
+                txtCompany.getText()
+
+        );
+
+        if(service.updateEmployee(employee)){
+            clear();
+            loadTable();
+        }
 
     }
 

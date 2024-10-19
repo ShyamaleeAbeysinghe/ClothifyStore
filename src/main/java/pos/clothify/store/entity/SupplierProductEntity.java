@@ -14,6 +14,7 @@ import lombok.ToString;
 @Table(name = "Supplie_product")
 public class SupplierProductEntity {
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer idSupplieProduct;
     @ManyToOne
     @JoinColumn(name = "Supplier_id")

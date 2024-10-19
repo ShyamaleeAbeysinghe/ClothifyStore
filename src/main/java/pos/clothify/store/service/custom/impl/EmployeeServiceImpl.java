@@ -1,5 +1,7 @@
 package pos.clothify.store.service.custom.impl;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import org.modelmapper.ModelMapper;
 import pos.clothify.store.entity.EmployeeEntity;
@@ -13,6 +15,7 @@ import pos.clothify.store.reporsitory.custom.UserDao;
 import pos.clothify.store.service.custom.EmployeeSrevice;
 import pos.clothify.store.util.DaoType;
 
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -35,7 +38,7 @@ public class EmployeeServiceImpl implements EmployeeSrevice {
             return false;
         }else{
             EmployeeDao dao = DaoFactory.getInstance().getDao(DaoType.EMPLOYEE);
-            EmployeeEntity employeeEntityGet = dao.findBySupplierEmail(employee.getEmail());
+            EmployeeEntity employeeEntityGet = dao.findByEmployeeEmail(employee.getEmail());
 
             if(employeeEntityGet==null){
                 EmployeeEntity employeeEntity = new ModelMapper().map(employee, EmployeeEntity.class);
@@ -60,12 +63,61 @@ public class EmployeeServiceImpl implements EmployeeSrevice {
     @Override
     public Employee findByEmail(String email) {
         EmployeeDao dao = DaoFactory.getInstance().getDao(DaoType.EMPLOYEE);
-        EmployeeEntity employeeEntity = dao.findBySupplierEmail(email);
+        EmployeeEntity employeeEntity = dao.findByEmployeeEmail(email);
         if(employeeEntity==null){
-            new Alert(Alert.AlertType.ERROR, "Can not found User").show();
+            new Alert(Alert.AlertType.ERROR, "Can not found Employee").show();
             return null;
         }
         return new ModelMapper().map(employeeEntity, Employee.class);
+    }
+
+    @Override
+    public ObservableList<Employee> getAllEmployee() {
+        ObservableList<Employee> employeeList = FXCollections.observableArrayList();
+        EmployeeDao dao = DaoFactory.getInstance().getDao(DaoType.EMPLOYEE);
+        List<EmployeeEntity> all = dao.findAll();
+
+        all.forEach(employeeEntity -> {
+            Employee employee = new ModelMapper().map(employeeEntity, Employee.class);
+
+            employeeList.add(employee);
+        });
+        return employeeList;
+    }
+
+    @Override
+    public boolean updateEmployee(Employee employee) {
+        EmployeeDao dao = DaoFactory.getInstance().getDao(DaoType.EMPLOYEE);
+        EmployeeEntity employeeEntity = dao.findByEmployeeEmail(employee.getEmail());
+
+        if(employeeEntity==null){
+            new Alert(Alert.AlertType.ERROR, "Can not found Employee").show();
+            return false;
+        }else {
+            employeeEntity.setEmployeeName(employee.getEmployeeName());
+            employeeEntity.setCompany(employee.getCompany());
+
+            dao.update(employeeEntity);
+            new Alert(Alert.AlertType.INFORMATION, "Update Succses").show();
+            return true;
+        }
+    }
+
+    @Override
+    public boolean deleteEmployee(String email) {
+        EmployeeDao dao = DaoFactory.getInstance().getDao(DaoType.EMPLOYEE);
+        EmployeeEntity employeeEntity = dao.findByEmployeeEmail(email);
+
+        if(employeeEntity==null){
+            new Alert(Alert.AlertType.ERROR, "Can not found Emmployee").show();
+            return false;
+        }else {
+            employeeEntity.setStatus(0);
+            dao.update(employeeEntity);
+            new Alert(Alert.AlertType.INFORMATION, "Delete Succses").show();
+            return true;
+        }
+
     }
 
     public boolean validateEmail(String emailStr) {

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="578.0" prefWidth="600.0" style="-fx-background-color: #D9D9D9;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8f6a7e" height="57.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
+      <Label alignment="CENTER" layoutX="86.0" layoutY="14.0" prefHeight="17.0" prefWidth="401.0" text="Profile Form" textFill="#290418">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="123.0" layoutY="286.0" prefHeight="19.0" prefWidth="83.0" text="Contact  :" textAlignment="CENTER" textFill="#1b0310">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="123.0" layoutY="87.0" prefHeight="19.0" prefWidth="95.0" text="User ID  :" textAlignment="CENTER" textFill="#1b0310">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="123.0" layoutY="121.0" prefHeight="19.0" prefWidth="83.0" text="Email  :" textAlignment="CENTER" textFill="#1b0310">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="123.0" layoutY="150.0" prefHeight="19.0" prefWidth="89.0" text="First Name :" textAlignment="CENTER" textFill="#1b0310">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="123.0" layoutY="185.0" prefHeight="19.0" prefWidth="89.0" text="Last Name  :" textAlignment="CENTER" textFill="#1b0310">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="123.0" layoutY="254.0" prefHeight="19.0" prefWidth="83.0" text="NIC  :" textAlignment="CENTER" textFill="#1b0310">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="123.0" layoutY="220.0" prefHeight="19.0" prefWidth="77.0" text="Address  :" textAlignment="CENTER" textFill="#1b0310">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtUserId" editable="false" layoutX="230.0" layoutY="84.0" maxHeight="13.0" prefHeight="13.0" prefWidth="182.0" style="-fx-background-color: #C7B5BF; -fx-color: white;" unFocusColor="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtEmail" layoutX="230.0" layoutY="118.0" maxHeight="13.0" prefHeight="13.0" prefWidth="182.0" style="-fx-background-color: #C7B5BF; -fx-color: white;" unFocusColor="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtContact" layoutX="230.0" layoutY="283.0" maxHeight="13.0" prefHeight="13.0" prefWidth="182.0" style="-fx-background-color: #C7B5BF; -fx-color: white;" unFocusColor="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtLastName" layoutX="230.0" layoutY="182.0" maxHeight="13.0" prefHeight="13.0" prefWidth="182.0" style="-fx-background-color: #C7B5BF; -fx-color: white;" unFocusColor="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtNIC" layoutX="230.0" layoutY="251.0" maxHeight="13.0" prefHeight="13.0" prefWidth="182.0" style="-fx-background-color: #C7B5BF; -fx-color: white;" unFocusColor="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtFirstName" layoutX="230.0" layoutY="147.0" maxHeight="13.0" prefHeight="13.0" prefWidth="182.0" style="-fx-background-color: #C7B5BF; -fx-color: white;" unFocusColor="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtAddress" layoutX="230.0" layoutY="217.0" maxHeight="13.0" prefHeight="13.0" prefWidth="182.0" style="-fx-background-color: #C7B5BF; -fx-color: white;" unFocusColor="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXTextField>
+      <Label layoutX="127.0" layoutY="321.0" prefHeight="19.0" prefWidth="83.0" text="Role  :" textAlignment="CENTER" textFill="#1b0310">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="combRole" layoutX="231.0" layoutY="318.0" prefHeight="26.0" prefWidth="182.0" promptText="Job Role" style="-fx-background-color: #C7B5BF;" />
+      <JFXButton layoutX="230.0" layoutY="539.0" onAction="#btnOnActionUpdate" prefHeight="25.0" prefWidth="161.0" style="-fx-background-color: #290418;" text="Update" textFill="#dbb7ca">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnUpdatePassword" disable="true" layoutX="413.0" layoutY="539.0" onAction="#btnOnActionUpdatePassword" prefHeight="25.0" prefWidth="161.0" style="-fx-background-color: #290418;" text="Update Password" textFill="#dbb7ca">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <CheckBox fx:id="checkPasswordChange" layoutX="144.0" layoutY="367.0" mnemonicParsing="false" onAction="#checkPasswordSelection" prefHeight="17.0" prefWidth="174.0" text="Password Change" />
+      <Label layoutX="75.0" layoutY="467.0" prefHeight="19.0" prefWidth="136.0" text="Confirm Password  :" textAlignment="CENTER" textFill="#1b0310">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="75.0" layoutY="435.0" prefHeight="19.0" prefWidth="111.0" text="New Password :" textAlignment="CENTER" textFill="#1b0310">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="75.0" layoutY="401.0" prefHeight="19.0" prefWidth="117.0" text="Current Password :" textAlignment="CENTER" textFill="#1b0310">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="txtCurrentPassword" layoutX="236.0" layoutY="398.0" prefHeight="25.0" prefWidth="182.0" style="-fx-background-color: #C7B5BF;" />
+      <PasswordField fx:id="txtNewPassword" layoutX="236.0" layoutY="432.0" prefHeight="25.0" prefWidth="182.0" style="-fx-background-color: #C7B5BF;" />
+      <PasswordField fx:id="txtConformPassword" layoutX="236.0" layoutY="464.0" prefHeight="25.0" prefWidth="182.0" style="-fx-background-color: #C7B5BF;" />
+   </children>
+</AnchorPane>

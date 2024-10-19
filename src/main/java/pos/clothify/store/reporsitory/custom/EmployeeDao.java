@@ -7,5 +7,5 @@ import pos.clothify.store.reporsitory.CrudReporsitory;
 public interface EmployeeDao extends CrudReporsitory<EmployeeEntity> {
     Integer findByMaxId();
 
-    EmployeeEntity findBySupplierEmail(String email);
+    EmployeeEntity findByEmployeeEmail(String email);
 }

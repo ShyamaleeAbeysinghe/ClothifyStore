@@ -16,4 +16,6 @@ public interface SupplierService extends SuperService {
     boolean updateUser(Supplier supplier);
 
     boolean deleteSupplier(String email);
+
+
 }

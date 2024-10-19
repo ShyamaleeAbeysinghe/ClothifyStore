@@ -6,6 +6,7 @@ import jakarta.persistence.criteria.Root;
 import org.hibernate.Session;
 import org.hibernate.query.criteria.JpaCriteriaQuery;
 
+import pos.clothify.store.entity.JobRoleEntity;
 import pos.clothify.store.entity.SupplierEntity;
 import pos.clothify.store.entity.UserEntity;
 import pos.clothify.store.reporsitory.custom.SupplierDao;
@@ -72,5 +73,16 @@ public class SupplierDaoImpl implements SupplierDao {
         query.where(session.getCriteriaBuilder().equal(supplierEntityRoot.get("Email"),email));
 
         return session.createQuery(query).getSingleResultOrNull();
+    }
+
+    @Override
+    public SupplierEntity getSupplierByName(String name) {
+        Session session = HibernateUtil.getSession();
+        CriteriaQuery<SupplierEntity> query = session.getCriteriaBuilder().createQuery(SupplierEntity.class);
+        Root<SupplierEntity> supplierEntityRoot = query.from(SupplierEntity.class);
+        query.select(supplierEntityRoot);
+        query.where(session.getCriteriaBuilder().equal(supplierEntityRoot.get("SupplierName"),name));
+
+        return session.createQuery(query).getSingleResult();
     }
 }
