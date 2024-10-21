@@ -4,11 +4,15 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
+import javafx.stage.Stage;
 import pos.clothify.store.model.User;
 import pos.clothify.store.service.SuperFactory;
 import pos.clothify.store.service.SuperService;
@@ -16,6 +20,7 @@ import pos.clothify.store.service.custom.UserService;
 import pos.clothify.store.util.ServiceType;
 
 import javax.swing.*;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
@@ -23,12 +28,17 @@ import java.util.regex.Pattern;
 
 public class ProfileFormController implements Initializable {
     private String email;
+    private String role;
     private  User user;
     private UserService service;
+
     public ProfileFormController(String email){
         this.email=email;
+
     }
 
+    @FXML
+    private JFXButton btnBack;
 
     @FXML
     public PasswordField txtConformPassword;
@@ -154,13 +164,29 @@ public class ProfileFormController implements Initializable {
     }
 
     public boolean validatePassword(String password) {
-//        final Pattern VALID_EMAIL_ADDRESS_REGEX =
-//                Pattern.compile( "^(?=.[a-zA-Z])(?=.\\d)(?=.[!@#$%^&()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?]).{8,}$", Pattern.CASE_INSENSITIVE);
+
         String regex = "^(?=.*[a-zA-Z])(?=.*\\d)(?=.*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?]).{8,}$";
 
-//        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(password);
+
         boolean isValid = Pattern.matches(regex, password);
         return isValid;
+    }
+
+    @FXML
+    void btnOnActionBack(ActionEvent event) {
+        Stage curruntStage=(Stage) btnBack.getScene().getWindow();
+        Stage stageNew=new Stage();
+
+        try {
+            FXMLLoader load = new FXMLLoader(getClass().getResource("/view/UserDashboardFormController.fxml"));
+            load.setController( new UserDashboardController(email));
+            Parent parent = load.load();
+            stageNew.setScene(new Scene(parent));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stageNew.show();
+        curruntStage.close();
     }
 
 

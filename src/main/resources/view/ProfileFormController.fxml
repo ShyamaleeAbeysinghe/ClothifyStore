@@ -123,5 +123,6 @@
       <PasswordField fx:id="txtCurrentPassword" layoutX="236.0" layoutY="398.0" prefHeight="25.0" prefWidth="182.0" style="-fx-background-color: #C7B5BF;" />
       <PasswordField fx:id="txtNewPassword" layoutX="236.0" layoutY="432.0" prefHeight="25.0" prefWidth="182.0" style="-fx-background-color: #C7B5BF;" />
       <PasswordField fx:id="txtConformPassword" layoutX="236.0" layoutY="464.0" prefHeight="25.0" prefWidth="182.0" style="-fx-background-color: #C7B5BF;" />
+      <JFXButton fx:id="btnBack" layoutX="475.0" layoutY="205.0" onAction="#btnOnActionBack" prefHeight="25.0" prefWidth="89.0" text="back" />
    </children>
 </AnchorPane>

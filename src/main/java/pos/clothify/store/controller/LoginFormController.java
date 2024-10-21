@@ -5,6 +5,7 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -17,8 +18,10 @@ import pos.clothify.store.service.custom.UserService;
 import pos.clothify.store.util.ServiceType;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class LoginFormController {
+public class LoginFormController implements Initializable {
 
     @FXML
     private JFXPasswordField txtPassword;
@@ -26,12 +29,19 @@ public class LoginFormController {
     @FXML
     private JFXTextField txtUsername;
 
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        LoginService service = SuperFactory.getInstance().getServiceType(ServiceType.LOGIN);
+        service.load();
+    }
+
     @FXML
     void btnOnActionLogin(ActionEvent event) {
         LoginService service = SuperFactory.getInstance().getServiceType(ServiceType.LOGIN);
 
 
-        if(txtUsername==null || txtPassword==null){
+        if(txtUsername.getText().isEmpty() || txtPassword.getText().isEmpty()){
             new Alert(Alert.AlertType.ERROR,"Some Fields are empty").show();
         }else{
             Login login=new Login(
@@ -40,34 +50,39 @@ public class LoginFormController {
             );
 
             String loginResponse = service.login(login);
+
+            Stage curruntStage=(Stage) txtUsername.getScene().getWindow();
+            Stage newstage=new Stage();
             if(loginResponse.equals("User can not found")){
                 new Alert(Alert.AlertType.INFORMATION, "Invaid Credintions").show();
 
             }else if (loginResponse.equals("Admin Found")){
-                Stage stage=new Stage();
+
 
                 try {
                     FXMLLoader loads = new FXMLLoader(getClass().getResource("/view/AdminDashboardFormController.fxml"));
                     loads.setController(new AdminDashboardController());
                     Parent load = loads.load();
-                    stage.setScene(new Scene(load));
+                    newstage.setScene(new Scene(load));
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-                stage.show();
+                newstage.show();
+                curruntStage.close();
 
             }else if (loginResponse.equals("User Found")){
-                Stage stage=new Stage();
+
 
                 try {
                     FXMLLoader load = new FXMLLoader(getClass().getResource("/view/UserDashboardFormController.fxml"));
                     load.setController(new UserDashboardController(txtUsername.getText()));
                     Parent parent = load.load();
-                    stage.setScene(new Scene(parent));
+                    newstage.setScene(new Scene(parent));
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-                stage.show();
+                newstage.show();
+                curruntStage.close();
             }
         }
 

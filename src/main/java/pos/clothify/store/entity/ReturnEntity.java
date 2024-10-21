@@ -14,6 +14,7 @@ import lombok.ToString;
 @Table(name = "Returns")
 public class ReturnEntity {
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer idReturns;
     private String ReturnDate;
     private Integer Status;

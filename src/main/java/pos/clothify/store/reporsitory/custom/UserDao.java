@@ -10,5 +10,7 @@ public interface UserDao extends CrudReporsitory<UserEntity> {
 
     UserEntity login(String userEmail,String password);
 
+    void load();
+
 
 }

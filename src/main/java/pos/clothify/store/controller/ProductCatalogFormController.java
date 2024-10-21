@@ -1,14 +1,19 @@
 package pos.clothify.store.controller;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import pos.clothify.store.model.Product;
 import pos.clothify.store.model.User;
 import pos.clothify.store.service.SuperFactory;
@@ -17,10 +22,21 @@ import pos.clothify.store.service.custom.ProductService;
 import pos.clothify.store.service.custom.UserService;
 import pos.clothify.store.util.ServiceType;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ProductCatalogFormController implements Initializable {
+
+    private String role;
+    private String email;
+    public ProductCatalogFormController(String role,String email){
+        this.role=role;
+        this.email=email;
+    }
+    @FXML
+    private JFXButton btnBack;
+
 
     @FXML
     private TableColumn colPrice;
@@ -181,6 +197,36 @@ public class ProductCatalogFormController implements Initializable {
             clear();
             loadTable();
         }
+    }
+
+    @FXML
+    void btnOnActionBack(ActionEvent event) {
+        Stage curruntStage=(Stage) btnBack.getScene().getWindow();
+        Stage stageNew=new Stage();
+
+        if(role.equals("Admin")){
+            try {
+                FXMLLoader loads = new FXMLLoader(getClass().getResource("/view/AdminDashboardFormController.fxml"));
+                loads.setController(new AdminDashboardController());
+                Parent load = loads.load();
+                stageNew.setScene(new Scene(load));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }else{
+            try {
+                FXMLLoader loads = new FXMLLoader(getClass().getResource("/view/UserDashboardFormController.fxml"));
+                loads.setController(new UserDashboardController(email));
+                Parent load = loads.load();
+                stageNew.setScene(new Scene(load));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        stageNew.show();
+        curruntStage.close();
+
     }
 
 

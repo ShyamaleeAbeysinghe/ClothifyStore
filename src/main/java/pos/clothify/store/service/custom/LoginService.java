@@ -5,4 +5,5 @@ import pos.clothify.store.service.SuperService;
 
 public interface LoginService extends SuperService {
     String login(Login login);
+    void load();
 }

@@ -23,7 +23,6 @@ public class OrderEntity {
 
     private Integer idOrder;
     private String CustomerName;
-    private String CustomerEmail;
     private Double Total;
     private Integer Status;
 

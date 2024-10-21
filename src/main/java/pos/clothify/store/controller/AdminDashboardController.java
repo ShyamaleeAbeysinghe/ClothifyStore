@@ -1,8 +1,10 @@
 package pos.clothify.store.controller;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -12,53 +14,84 @@ public class AdminDashboardController {
 
 
     @FXML
+    private JFXButton btnEmployee;
+
+    @FXML
+    private JFXButton btnPriduct;
+
+    @FXML
+    private JFXButton btnRegister;
+
+    @FXML
+    private JFXButton btnUser;
+
+
+    @FXML
     void btnOnActionEmployeeRegistration(ActionEvent event) {
-        Stage stage=new Stage();
+        Stage currentStage=(Stage) btnEmployee.getScene().getWindow();
+        Stage stageNew=new Stage();
 
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/EmployeeFormController.fxml"))));
+            FXMLLoader loads = new FXMLLoader(getClass().getResource("/view/EmployeeFormController.fxml"));
+            loads.setController(new EmployeeFormController("Admin",""));
+            Parent load = loads.load();
+            stageNew.setScene(new Scene(load));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        stage.show();
+        stageNew.show();
+        currentStage.close();
+
     }
 
     @FXML
     void btnOnActionProductCatalog(ActionEvent event) {
-        Stage stage=new Stage();
+        Stage currentStage=(Stage) btnPriduct.getScene().getWindow();
+        Stage stageNew=new Stage();
 
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/ProductCatalogFormController.fxml"))));
+            FXMLLoader loads = new FXMLLoader(getClass().getResource("/view/ProductCatalogFormController.fxml"));
+            loads.setController(new ProductCatalogFormController("Admin",""));
+            Parent load = loads.load();
+            stageNew.setScene(new Scene(load));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        stage.show();
+        stageNew.show();
+        currentStage.close();
 
     }
 
     @FXML
     void btnOnActionSuplierRegistration(ActionEvent event) {
-        Stage stage=new Stage();
+        Stage currentStage=(Stage) btnRegister.getScene().getWindow();
+        Stage stageNew=new Stage();
 
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/SuplierFormController.fxml"))));
+            FXMLLoader loads = new FXMLLoader(getClass().getResource("/view/SuplierFormController.fxml"));
+            loads.setController(new SuplierFormController("Admin",""));
+            Parent load = loads.load();
+            stageNew.setScene(new Scene(load));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        stage.show();
+        stageNew.show();
+        currentStage.close();
 
     }
 
     @FXML
     void btnOnActionUserReristration(ActionEvent event) {
-        Stage stage=new Stage();
+        Stage currentStage=(Stage) btnUser.getScene().getWindow();
+        Stage stageNew=new Stage();
 
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/UserFormController.fxml"))));
+            stageNew.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/UserFormController.fxml"))));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        stage.show();
+        stageNew.show();
+        currentStage.close();
 
     }
 

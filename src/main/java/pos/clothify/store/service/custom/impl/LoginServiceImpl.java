@@ -24,4 +24,10 @@ public class LoginServiceImpl implements LoginService {
         }
        return "User Can not Found";
     }
+
+    @Override
+    public void load() {
+        UserDao dao = DaoFactory.getInstance().getDao(DaoType.USER);
+        dao.load();
+    }
 }

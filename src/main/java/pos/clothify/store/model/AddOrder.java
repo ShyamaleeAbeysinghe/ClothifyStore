@@ -11,6 +11,6 @@ import lombok.ToString;
 @NoArgsConstructor
 public class AddOrder {
     private String productName;
-    private String size;
     private int qty;
+    private Double price;
 }

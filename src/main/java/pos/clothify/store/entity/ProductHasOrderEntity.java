@@ -14,6 +14,7 @@ import lombok.ToString;
 @Table(name = "Product_has_order")
 public class ProductHasOrderEntity {
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer idProductHasOrder;
     private String Qty;
 

@@ -81,4 +81,9 @@ public class UserDaoImpl implements UserDao {
 
         return session.createQuery(query).getSingleResultOrNull();
     }
+
+    @Override
+    public void load() {
+        HibernateUtil.getSession();
+    }
 }
