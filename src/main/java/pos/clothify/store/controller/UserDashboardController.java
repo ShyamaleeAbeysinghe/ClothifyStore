@@ -16,6 +16,8 @@ public class UserDashboardController {
     public UserDashboardController(String email){
         this.email=email;
     }
+    @FXML
+    private JFXButton btnLogOut;
 
     @FXML
     private JFXButton btnEmployee;
@@ -136,6 +138,22 @@ public class UserDashboardController {
             load.setController(new ProfileFormController(email));
             Parent parent = load.load();
             stageNew.setScene(new Scene(parent));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stageNew.show();
+        curruntStage.close();
+    }
+    @FXML
+    void btnOnActioLogOut(ActionEvent event) {
+        Stage curruntStage=(Stage) btnLogOut.getScene().getWindow();
+        Stage stageNew=new Stage();
+
+        try {
+            FXMLLoader loads = new FXMLLoader(getClass().getResource("/view/LoginFormController.fxml"));
+            loads.setController(new LoginFormController());
+            Parent load = loads.load();
+            stageNew.setScene(new Scene(load));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

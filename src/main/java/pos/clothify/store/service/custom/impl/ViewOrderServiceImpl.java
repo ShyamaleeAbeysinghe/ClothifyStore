@@ -35,7 +35,7 @@ public class ViewOrderServiceImpl implements ViewOrderService {
     @Override
     public ViewOrder findByOrderId(Integer orderId) {
         OrderDao orderDao = DaoFactory.getInstance().getDao(DaoType.ORDER);
-        OrderEntity orderEntity = orderDao.findByOrderId(orderId);
+        OrderEntity orderEntity = orderDao.findByOrderId(orderId,1);
         if(orderEntity==null){
             new Alert(Alert.AlertType.ERROR, "Can not found Order").show();
             return null;
@@ -49,7 +49,7 @@ public class ViewOrderServiceImpl implements ViewOrderService {
     @Override
     public Boolean returnOrder(Integer orderId) {
         OrderDao orderDao = DaoFactory.getInstance().getDao(DaoType.ORDER);
-        OrderEntity orderEntity = orderDao.findByOrderId(orderId);
+        OrderEntity orderEntity = orderDao.findByOrderId(orderId,1);
         orderEntity.setStatus(0);
         orderDao.update(orderEntity);
         ReturnDao returnDao = DaoFactory.getInstance().getDao(DaoType.RETURN);

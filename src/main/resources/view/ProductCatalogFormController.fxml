@@ -12,10 +12,10 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="640.0" prefWidth="600.0" style="-fx-background-color: #D9D9D9;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="665.0" prefWidth="600.0" style="-fx-background-color: #D9D9D9;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8f6a7e" height="51.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
-      <Label alignment="CENTER" layoutX="118.0" layoutY="8.0" prefHeight="35.0" prefWidth="360.0" text="Product Catalog Form" textFill="#290418">
+      <Label alignment="CENTER" layoutX="89.0" layoutY="8.0" prefHeight="35.0" prefWidth="289.0" text="Product Catalog Form" textFill="#290418">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
@@ -57,7 +57,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="25.0" layoutY="545.0" onAction="#btnOnActionReload" prefHeight="25.0" prefWidth="163.0" style="-fx-background-color: #290418;" text="Reload" textFill="#c7b5bf">
+      <JFXButton layoutX="47.0" layoutY="581.0" onAction="#btnOnActionReload" prefHeight="25.0" prefWidth="163.0" style="-fx-background-color: #290418;" text="Reload" textFill="#c7b5bf">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -76,7 +76,7 @@
       <JFXTextField fx:id="txtQtyOnHand" layoutX="154.0" layoutY="214.0" prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #C7B5BF;" />
       <JFXTextField fx:id="txtPrice" layoutX="154.0" layoutY="179.0" prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #C7B5BF;" />
       <JFXTextField fx:id="txtSize" layoutX="154.0" layoutY="144.0" prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #C7B5BF;" />
-      <TableView fx:id="tblProduct" layoutX="7.0" layoutY="336.0" prefHeight="200.0" prefWidth="586.0" style="-fx-background-color: #C7B5BF; -fx-color: #C7B5BF;">
+      <TableView fx:id="tblProduct" layoutX="7.0" layoutY="371.0" prefHeight="200.0" prefWidth="586.0" style="-fx-background-color: #C7B5BF; -fx-color: #C7B5BF;">
          <columns>
             <TableColumn fx:id="colProductId" prefWidth="75.0" text="Product Id" />
             <TableColumn fx:id="colProductName" prefWidth="118.0" text="Product Name" />
@@ -91,17 +91,25 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1b0310" height="51.0" layoutY="598.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
-      <Label alignment="CENTER" layoutX="175.0" layoutY="615.0" prefHeight="17.0" prefWidth="216.0" text="© 2024 Clothify" textFill="#c7b5bf">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1b0310" height="51.0" layoutX="-2.0" layoutY="614.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
+      <Label alignment="CENTER" layoutX="173.0" layoutY="631.0" prefHeight="17.0" prefWidth="216.0" text="© 2024 Clothify" textFill="#c7b5bf">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <ImageView fitHeight="251.0" fitWidth="241.0" layoutX="342.0" layoutY="69.0" pickOnBounds="true">
+      <ImageView fitHeight="251.0" fitWidth="241.0" layoutX="345.0" layoutY="111.0" pickOnBounds="true">
          <image>
             <Image url="@../image/add-order.jpg" />
          </image>
       </ImageView>
-      <JFXButton fx:id="btnBack" layoutX="293.0" layoutY="545.0" onAction="#btnOnActionBack" prefHeight="25.0" prefWidth="90.0" text="Back" />
+      <JFXButton fx:id="btnBack" layoutX="390.0" layoutY="581.0" onAction="#btnOnActionBack" prefHeight="25.0" prefWidth="163.0" style="-fx-background-color: #290418;" text="Back" textFill="#c7b5bf">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></JFXButton>
+      <JFXButton fx:id="btnLogOut" layoutX="404.0" layoutY="8.0" onAction="#btnOnActionLogOut" prefHeight="35.0" prefWidth="172.0" style="-fx-background-color: #693953;" text="Log Out" textFill="#c7b5bf">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

@@ -29,6 +29,8 @@ public class ViewOrderFormController implements Initializable {
     public ViewOrderFormController(String email){
         this.email=email;
     }
+    @FXML
+    private JFXButton btnLogOut;
 
     @FXML
     private JFXButton btnBack;
@@ -62,7 +64,17 @@ public class ViewOrderFormController implements Initializable {
         colTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
 
        loadTable();
+       tblViewOder.getSelectionModel().selectedItemProperty().addListener((observableValue, oldVal, newVal) -> {
+           addValueToText(newVal);
+       });
     }
+
+    private void addValueToText(ViewOrder newVal) {
+        txtOrderId.setText(newVal.getOrderId());
+        txtCustomerName.setText(newVal.getCustomerName());
+        txtTotal.setText(Double.toString(newVal.getTotal()));
+    }
+
     public void loadTable(){
         ViewOrderService service = SuperFactory.getInstance().getServiceType(ServiceType.VIEWODER);
         ObservableList<ViewOrder> allOrders = service.findAllOrders();
@@ -117,6 +129,23 @@ public class ViewOrderFormController implements Initializable {
             load.setController( new UserDashboardController(email));
             Parent parent = load.load();
             stageNew.setScene(new Scene(parent));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stageNew.show();
+        curruntStage.close();
+    }
+
+    @FXML
+    void btnOnActionLogOut(ActionEvent event) {
+        Stage curruntStage=(Stage) btnLogOut.getScene().getWindow();
+        Stage stageNew=new Stage();
+
+        try {
+            FXMLLoader loads = new FXMLLoader(getClass().getResource("/view/LoginFormController.fxml"));
+            loads.setController(new LoginFormController());
+            Parent load = loads.load();
+            stageNew.setScene(new Scene(load));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

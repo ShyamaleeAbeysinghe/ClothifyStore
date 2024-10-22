@@ -35,6 +35,10 @@ public class ProductCatalogFormController implements Initializable {
         this.email=email;
     }
     @FXML
+    private JFXButton btnLogOut;
+
+
+    @FXML
     private JFXButton btnBack;
 
 
@@ -101,6 +105,21 @@ public class ProductCatalogFormController implements Initializable {
         maxId++;
         txtProductId.setText(Integer.toString(maxId));
 
+        tblProduct.getSelectionModel().selectedItemProperty().addListener((observableValue, oldVal, newVal) -> {
+            if(newVal!=null){
+                addValueToText(newVal);
+            }
+        });
+
+    }
+
+    private void addValueToText(Product newVal) {
+        txtProductId.setText(newVal.getProductId());
+        txtProductName.setText(newVal.getProductName());
+        txtSize.setText(newVal.getSize());
+        txtPrice.setText(Double.toString(newVal.getPrice()));
+        txtQtyOnHand.setText(Integer.toString(newVal.getQtyOnHand()));
+        comdSupplierName.setValue(newVal.getSupplierName());
     }
 
     private void loadTable() {
@@ -196,6 +215,14 @@ public class ProductCatalogFormController implements Initializable {
         if(service.updatProduct(product)){
             clear();
             loadTable();
+
+            Integer maxId = service.findByMaxId();
+
+            if(maxId==null){
+                maxId=0;
+            }
+            maxId++;
+            txtProductId.setText(Integer.toString(maxId));
         }
     }
 
@@ -227,6 +254,22 @@ public class ProductCatalogFormController implements Initializable {
         stageNew.show();
         curruntStage.close();
 
+    }
+    @FXML
+    void btnOnActionLogOut(ActionEvent event) {
+        Stage curruntStage=(Stage) btnLogOut.getScene().getWindow();
+        Stage stageNew=new Stage();
+
+        try {
+            FXMLLoader loads = new FXMLLoader(getClass().getResource("/view/LoginFormController.fxml"));
+            loads.setController(new LoginFormController());
+            Parent load = loads.load();
+            stageNew.setScene(new Scene(load));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stageNew.show();
+        curruntStage.close();
     }
 
 

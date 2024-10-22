@@ -3,6 +3,7 @@ package pos.clothify.store.reporsitory.custom.impl;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
 import org.hibernate.Session;
+import pos.clothify.store.entity.OrderEntity;
 import pos.clothify.store.entity.ReturnEntity;
 import pos.clothify.store.entity.SupplierEntity;
 import pos.clothify.store.reporsitory.custom.ReturnDao;
@@ -38,5 +39,16 @@ public class ReturnDaoImpl implements ReturnDao {
         session.close();
 
         return resultList;
+    }
+
+    @Override
+    public ReturnEntity findByOrderId(OrderEntity orderEntity) {
+        Session session = HibernateUtil.getSession();
+        CriteriaQuery<ReturnEntity> query = session.getCriteriaBuilder().createQuery(ReturnEntity.class);
+        Root<ReturnEntity> returnEntityRoot = query.from(ReturnEntity.class);
+        query.select(returnEntityRoot);
+        query.where(session.getCriteriaBuilder().equal(returnEntityRoot.get("order"),orderEntity),session.getCriteriaBuilder().equal(returnEntityRoot.get("Status"),1));
+
+        return session.createQuery(query).getSingleResultOrNull();
     }
 }

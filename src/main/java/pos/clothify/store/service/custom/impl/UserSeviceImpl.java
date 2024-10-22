@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import org.modelmapper.ModelMapper;
+import pos.clothify.store.config.EncryptionConfig;
 import pos.clothify.store.entity.JobRoleEntity;
 import pos.clothify.store.entity.UserEntity;
 import pos.clothify.store.model.User;
@@ -14,6 +15,8 @@ import pos.clothify.store.reporsitory.custom.UserDao;
 import pos.clothify.store.service.custom.UserService;
 import pos.clothify.store.util.DaoType;
 
+import java.io.UnsupportedEncodingException;
+import java.security.GeneralSecurityException;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -126,7 +129,19 @@ public class UserSeviceImpl implements UserService {
         if(userEntity==null){
             new Alert(Alert.AlertType.ERROR, "Can not found User").show();
             return false;
-        }else{
+        }else if (!validateEmail(user.getEmail())) {
+            new Alert(Alert.AlertType.ERROR, "Incorrect email").show();
+            return false;
+
+        } else if (!validateNic(user.getNic())) {
+            new Alert(Alert.AlertType.ERROR, "Incorrect NIC").show();
+            return false;
+
+        } else if (!validateCotact(user.getContact())) {
+            new Alert(Alert.AlertType.ERROR, "Incorrect Phone Number").show();
+            return false;
+        }
+        else{
             userEntity.setFirstName(user.getFirstName());
             userEntity.setLastName(user.getLastName());
             userEntity.setAddress(user.getAddress());
@@ -134,7 +149,16 @@ public class UserSeviceImpl implements UserService {
             userEntity.setNIC(user.getNic());
             userEntity.setJobRoleEntity(jobRoleDao.getjobRoleByName(user.getRole()));
             if(user.getPassword()!=null){
-                userEntity.setPassword(user.getPassword());
+                EncryptionConfig encryptionConfig = EncryptionConfig.getInstance();
+                try {
+                    String encryptedPassword = encryptionConfig.encrypt(user.getPassword(), encryptionConfig.getKey());
+
+                    userEntity.setPassword(encryptedPassword);
+                } catch (GeneralSecurityException e) {
+                    throw new RuntimeException(e);
+                } catch (UnsupportedEncodingException e) {
+                    throw new RuntimeException(e);
+                }
             }
 
             dao.update(userEntity);

@@ -12,105 +12,105 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="671.0" prefWidth="601.0" style="-fx-background-color: #D9D9D9;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pos.clothify.store.controller.UserFormController">
+<AnchorPane prefHeight="725.0" prefWidth="601.0" style="-fx-background-color: #D9D9D9;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pos.clothify.store.controller.UserFormController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8f6a7e" height="51.0" stroke="BLACK" strokeType="INSIDE" width="601.0" />
-      <Label alignment="CENTER" layoutX="51.0" layoutY="14.0" prefHeight="17.0" prefWidth="498.0" text="User Registration Form" textFill="#290418">
+      <Label alignment="CENTER" layoutX="51.0" layoutY="14.0" prefHeight="27.0" prefWidth="332.0" text="User Registration Form" textFill="#290418">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="24.0" layoutY="279.0" prefHeight="19.0" prefWidth="83.0" text="Contact  :" textAlignment="CENTER" textFill="#1b0310">
+      <Label layoutX="20.0" layoutY="317.0" prefHeight="19.0" prefWidth="83.0" text="Contact  :" textAlignment="CENTER" textFill="#1b0310">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="24.0" layoutY="80.0" prefHeight="19.0" prefWidth="95.0" text="User ID  :" textAlignment="CENTER" textFill="#1b0310">
+      <Label layoutX="20.0" layoutY="118.0" prefHeight="19.0" prefWidth="95.0" text="User ID  :" textAlignment="CENTER" textFill="#1b0310">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="24.0" layoutY="114.0" prefHeight="19.0" prefWidth="83.0" text="Email  :" textAlignment="CENTER" textFill="#1b0310">
+      <Label layoutX="20.0" layoutY="152.0" prefHeight="19.0" prefWidth="83.0" text="Email  :" textAlignment="CENTER" textFill="#1b0310">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="24.0" layoutY="143.0" prefHeight="19.0" prefWidth="89.0" text="First Name :" textAlignment="CENTER" textFill="#1b0310">
+      <Label layoutX="20.0" layoutY="181.0" prefHeight="19.0" prefWidth="89.0" text="First Name :" textAlignment="CENTER" textFill="#1b0310">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="24.0" layoutY="178.0" prefHeight="19.0" prefWidth="89.0" text="Last Name  :" textAlignment="CENTER" textFill="#1b0310">
+      <Label layoutX="20.0" layoutY="216.0" prefHeight="19.0" prefWidth="89.0" text="Last Name  :" textAlignment="CENTER" textFill="#1b0310">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="24.0" layoutY="247.0" prefHeight="19.0" prefWidth="83.0" text="NIC  :" textAlignment="CENTER" textFill="#1b0310">
+      <Label layoutX="20.0" layoutY="285.0" prefHeight="19.0" prefWidth="83.0" text="NIC  :" textAlignment="CENTER" textFill="#1b0310">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="24.0" layoutY="213.0" prefHeight="19.0" prefWidth="77.0" text="Address  :" textAlignment="CENTER" textFill="#1b0310">
+      <Label layoutX="20.0" layoutY="251.0" prefHeight="19.0" prefWidth="77.0" text="Address  :" textAlignment="CENTER" textFill="#1b0310">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtUserId" editable="false" layoutX="131.0" layoutY="77.0" maxHeight="13.0" prefHeight="13.0" prefWidth="182.0" style="-fx-background-color: #C7B5BF; -fx-color: white;" unFocusColor="WHITE">
+      <JFXTextField fx:id="txtUserId" editable="false" layoutX="127.0" layoutY="115.0" maxHeight="13.0" prefHeight="13.0" prefWidth="182.0" style="-fx-background-color: #C7B5BF; -fx-color: white;" unFocusColor="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtEmail" layoutX="131.0" layoutY="111.0" maxHeight="13.0" prefHeight="13.0" prefWidth="182.0" style="-fx-background-color: #C7B5BF; -fx-color: white;" unFocusColor="WHITE">
+      <JFXTextField fx:id="txtEmail" layoutX="127.0" layoutY="149.0" maxHeight="13.0" prefHeight="13.0" prefWidth="182.0" style="-fx-background-color: #C7B5BF; -fx-color: white;" unFocusColor="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtContact" layoutX="131.0" layoutY="276.0" maxHeight="13.0" prefHeight="13.0" prefWidth="182.0" style="-fx-background-color: #C7B5BF; -fx-color: white;" unFocusColor="WHITE">
+      <JFXTextField fx:id="txtContact" layoutX="127.0" layoutY="314.0" maxHeight="13.0" prefHeight="13.0" prefWidth="182.0" style="-fx-background-color: #C7B5BF; -fx-color: white;" unFocusColor="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtLastName" layoutX="131.0" layoutY="175.0" maxHeight="13.0" prefHeight="13.0" prefWidth="182.0" style="-fx-background-color: #C7B5BF; -fx-color: white;" unFocusColor="WHITE">
+      <JFXTextField fx:id="txtLastName" layoutX="127.0" layoutY="213.0" maxHeight="13.0" prefHeight="13.0" prefWidth="182.0" style="-fx-background-color: #C7B5BF; -fx-color: white;" unFocusColor="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtNIC" layoutX="131.0" layoutY="244.0" maxHeight="13.0" prefHeight="13.0" prefWidth="182.0" style="-fx-background-color: #C7B5BF; -fx-color: white;" unFocusColor="WHITE">
+      <JFXTextField fx:id="txtNIC" layoutX="127.0" layoutY="282.0" maxHeight="13.0" prefHeight="13.0" prefWidth="182.0" style="-fx-background-color: #C7B5BF; -fx-color: white;" unFocusColor="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtFirstName" layoutX="131.0" layoutY="140.0" maxHeight="13.0" prefHeight="13.0" prefWidth="182.0" style="-fx-background-color: #C7B5BF; -fx-color: white;" unFocusColor="WHITE">
+      <JFXTextField fx:id="txtFirstName" layoutX="127.0" layoutY="178.0" maxHeight="13.0" prefHeight="13.0" prefWidth="182.0" style="-fx-background-color: #C7B5BF; -fx-color: white;" unFocusColor="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtAddress" layoutX="131.0" layoutY="210.0" maxHeight="13.0" prefHeight="13.0" prefWidth="182.0" style="-fx-background-color: #C7B5BF; -fx-color: white;" unFocusColor="WHITE">
+      <JFXTextField fx:id="txtAddress" layoutX="127.0" layoutY="248.0" maxHeight="13.0" prefHeight="13.0" prefWidth="182.0" style="-fx-background-color: #C7B5BF; -fx-color: white;" unFocusColor="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXTextField>
-      <JFXButton layoutX="14.0" layoutY="355.0" onAction="#btnOnActionAdd" prefHeight="30.0" prefWidth="60.0" style="-fx-background-color: #290418;" text="Add" textFill="#c7b5bf">
+      <JFXButton layoutX="14.0" layoutY="405.0" onAction="#btnOnActionAdd" prefHeight="30.0" prefWidth="60.0" style="-fx-background-color: #290418;" text="Add" textFill="#c7b5bf">
          <font>
             <Font name="System Bold" size="11.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="91.0" layoutY="355.0" onAction="#btnOnActionUpdate" prefHeight="30.0" prefWidth="60.0" style="-fx-background-color: #290418;" text="Update" textFill="#c7b5bf">
+      <JFXButton layoutX="91.0" layoutY="405.0" onAction="#btnOnActionUpdate" prefHeight="30.0" prefWidth="60.0" style="-fx-background-color: #290418;" text="Update" textFill="#c7b5bf">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="168.0" layoutY="355.0" onAction="#btnOnActionSearch" prefHeight="30.0" prefWidth="60.0" style="-fx-background-color: #290418;" text="Search" textFill="#c7b5bf">
+      <JFXButton layoutX="168.0" layoutY="405.0" onAction="#btnOnActionSearch" prefHeight="30.0" prefWidth="60.0" style="-fx-background-color: #290418;" text="Search" textFill="#c7b5bf">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="243.0" layoutY="355.0" onAction="#btnOnActionDelete" prefHeight="30.0" prefWidth="60.0" style="-fx-background-color: #290418;" text="Delete" textFill="#c7b5bf">
+      <JFXButton layoutX="243.0" layoutY="405.0" onAction="#btnOnActionDelete" prefHeight="30.0" prefWidth="60.0" style="-fx-background-color: #290418;" text="Delete" textFill="#c7b5bf">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <TableView fx:id="tblUser" layoutX="8.0" layoutY="392.0" prefHeight="179.0" prefWidth="586.0" style="-fx-color: #C7B5BF; -fx-background-color: #C7B5BF;">
+      <TableView fx:id="tblUser" layoutX="10.0" layoutY="444.0" prefHeight="179.0" prefWidth="586.0" style="-fx-color: #C7B5BF; -fx-background-color: #C7B5BF;">
          <columns>
             <TableColumn fx:id="colUserId" prefWidth="75.0" text="User ID" />
             <TableColumn fx:id="colFirstName" prefWidth="85.0" text="First Name" />
@@ -122,28 +122,36 @@
             <TableColumn fx:id="colRole" prefWidth="56.0" text="Role" />
          </columns>
       </TableView>
-      <JFXButton layoutX="46.0" layoutY="580.0" onAction="#btnOnActionReload" prefHeight="30.0" prefWidth="151.0" style="-fx-background-color: #290418;" text="Reload" textFill="#c7b5bf">
+      <JFXButton layoutX="14.0" layoutY="635.0" onAction="#btnOnActionReload" prefHeight="30.0" prefWidth="151.0" style="-fx-background-color: #290418;" text="Reload" textFill="#c7b5bf">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <ImageView fitHeight="322.0" fitWidth="256.0" layoutX="334.0" layoutY="64.0" pickOnBounds="true">
+      <ImageView fitHeight="322.0" fitWidth="256.0" layoutX="340.0" layoutY="115.0" pickOnBounds="true">
          <image>
             <Image url="@../image/user.jpg" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1b0310" height="51.0" layoutX="1.0" layoutY="620.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
-      <Label alignment="CENTER" layoutX="110.0" layoutY="636.0" prefHeight="17.0" prefWidth="381.0" text="© 2024 Clothify" textFill="#c7b5bf">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1b0310" height="51.0" layoutY="674.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
+      <Label alignment="CENTER" layoutX="109.0" layoutY="690.0" prefHeight="17.0" prefWidth="381.0" text="© 2024 Clothify" textFill="#c7b5bf">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="28.0" layoutY="314.0" prefHeight="19.0" prefWidth="83.0" text="Role  :" textAlignment="CENTER" textFill="#1b0310">
+      <Label layoutX="24.0" layoutY="352.0" prefHeight="19.0" prefWidth="83.0" text="Role  :" textAlignment="CENTER" textFill="#1b0310">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <ComboBox fx:id="combRole" layoutX="132.0" layoutY="311.0" prefHeight="26.0" prefWidth="182.0" promptText="Job Role" style="-fx-background-color: #C7B5BF;" />
-      <JFXButton fx:id="btnBack" layoutX="287.0" layoutY="583.0" onAction="#btnOnActionBack" prefHeight="25.0" prefWidth="68.0" text="back" />
+      <ComboBox fx:id="combRole" layoutX="128.0" layoutY="349.0" prefHeight="26.0" prefWidth="182.0" promptText="Job Role" style="-fx-background-color: #C7B5BF;" />
+      <JFXButton fx:id="btnBack" layoutX="434.0" layoutY="635.0" onAction="#btnOnActionBack" prefHeight="30.0" prefWidth="151.0" style="-fx-background-color: #290418;" text="back" textFill="#c7b5bf">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></JFXButton>
+      <JFXButton fx:id="btnLogOut" layoutX="400.0" layoutY="13.0" onAction="#btnOnActionLogOut" prefHeight="30.0" prefWidth="166.0" style="-fx-background-color: #693953;" text="LogOut" textFill="#c7b5bf">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

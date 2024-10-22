@@ -58,12 +58,12 @@ public class OrderDaoImpl implements OrderDao {
     }
 
     @Override
-    public OrderEntity findByOrderId(Integer orderId) {
+    public OrderEntity findByOrderId(Integer orderId,Integer status) {
         Session session = HibernateUtil.getSession();
         CriteriaQuery<OrderEntity> query = session.getCriteriaBuilder().createQuery(OrderEntity.class);
         Root<OrderEntity> orderEntityRoot = query.from(OrderEntity.class);
         query.select(orderEntityRoot);
-        query.where(session.getCriteriaBuilder().equal(orderEntityRoot.get("idOrder"),orderId));
+        query.where(session.getCriteriaBuilder().equal(orderEntityRoot.get("idOrder"),orderId),session.getCriteriaBuilder().equal(orderEntityRoot.get("Status"),status));
 
         return session.createQuery(query).getSingleResultOrNull();
     }

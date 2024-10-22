@@ -35,6 +35,8 @@ public class SuplierFormController implements Initializable {
         this.role=role;
         this.email=email;
     }
+    @FXML
+    private JFXButton btnLogOut;
 
     @FXML
     private JFXButton btnBAck;
@@ -84,6 +86,19 @@ public class SuplierFormController implements Initializable {
         maxId++;
         txtSupplierId.setText(Integer.toString(maxId));
 
+        tblSupplier.getSelectionModel().selectedItemProperty().addListener((observableValue, oldVal, newVal) -> {
+            if(newVal!=null){
+                addValueToText(newVal);
+            }
+        });
+
+    }
+
+    private void addValueToText(Supplier newVal) {
+        txtSupplierId.setText(newVal.getSupplierId());
+        txtSupplierName.setText(newVal.getSupplierName());
+        txtEmail.setText(newVal.getEmail());
+        txtCompany.setText(newVal.getCompany());
     }
 
     private void loadTable() {
@@ -172,6 +187,13 @@ public class SuplierFormController implements Initializable {
         if(service.updateUser(supplier)){
             clear();
             loadTable();
+
+            Integer maxId = service.findByMaxId();
+            if(maxId==null){
+                maxId=0;
+            }
+            maxId++;
+            txtSupplierId.setText(Integer.toString(maxId));
         }
 
     }
@@ -203,6 +225,23 @@ public class SuplierFormController implements Initializable {
         stageNew.show();
         curruntStage.close();
 
+    }
+
+    @FXML
+    void btnOnActionLogOut(ActionEvent event) {
+        Stage curruntStage=(Stage) btnLogOut.getScene().getWindow();
+        Stage stageNew=new Stage();
+
+        try {
+            FXMLLoader loads = new FXMLLoader(getClass().getResource("/view/LoginFormController.fxml"));
+            loads.setController(new LoginFormController());
+            Parent load = loads.load();
+            stageNew.setScene(new Scene(load));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stageNew.show();
+        curruntStage.close();
     }
 
 

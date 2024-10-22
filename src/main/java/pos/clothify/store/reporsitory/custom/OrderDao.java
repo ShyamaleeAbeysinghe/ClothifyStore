@@ -6,5 +6,5 @@ import pos.clothify.store.reporsitory.CrudReporsitory;
 
 public interface OrderDao extends CrudReporsitory<OrderEntity> {
     Integer findByMaxId();
-    OrderEntity findByOrderId(Integer orderId);
+    OrderEntity findByOrderId(Integer orderId,Integer status);
 }

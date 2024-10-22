@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="602.0" prefWidth="600.0" style="-fx-background-color: #D9D9D9;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="626.0" prefWidth="600.0" style="-fx-background-color: #D9D9D9;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8f6a7e" height="49.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
       <Label alignment="CENTER" layoutX="15.0" layoutY="11.0" prefHeight="17.0" prefWidth="562.0" text="Supplier Registration Form" textFill="#290418">
@@ -19,51 +19,51 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="37.0" layoutY="76.0" prefHeight="17.0" prefWidth="124.0" text="Supplier ID             :" textFill="#1b0310">
+      <Label layoutX="39.0" layoutY="87.0" prefHeight="17.0" prefWidth="124.0" text="Supplier ID             :" textFill="#1b0310">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="38.0" layoutY="148.0" prefHeight="19.0" prefWidth="134.0" text="Supplier Name      :" textFill="#1b0310">
+      <Label layoutX="39.0" layoutY="180.0" prefHeight="19.0" prefWidth="134.0" text="Supplier Name      :" textFill="#1b0310">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="38.0" layoutY="111.0" prefHeight="17.0" prefWidth="124.0" text="Emali            :" textFill="#1b0310">
+      <Label layoutX="39.0" layoutY="135.0" prefHeight="17.0" prefWidth="124.0" text="Emali            :" textFill="#1b0310">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="38.0" layoutY="184.0" prefHeight="17.0" prefWidth="124.0" text="Company            :" textFill="#1b0310">
+      <Label layoutX="39.0" layoutY="227.0" prefHeight="17.0" prefWidth="124.0" text="Company            :" textFill="#1b0310">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtSupplierId" layoutX="170.0" layoutY="73.0" prefHeight="25.0" prefWidth="176.0" style="-fx-background-color: #C7B5BF;" />
-      <JFXTextField fx:id="txtSupplierName" layoutX="171.0" layoutY="145.0" prefHeight="25.0" prefWidth="176.0" style="-fx-background-color: #C7B5BF;" />
-      <JFXTextField fx:id="txtEmail" layoutX="171.0" layoutY="108.0" prefHeight="25.0" prefWidth="176.0" style="-fx-background-color: #C7B5BF;" />
-      <JFXTextField fx:id="txtCompany" layoutX="171.0" layoutY="181.0" prefHeight="25.0" prefWidth="176.0" style="-fx-background-color: #C7B5BF;" />
-      <JFXButton layoutX="22.0" layoutY="243.0" onAction="#btnOnActionAdd" prefHeight="25.0" prefWidth="66.0" style="-fx-background-color: #1B0310;" text="Add" textFill="#c7b5bf">
+      <JFXTextField fx:id="txtSupplierId" layoutX="172.0" layoutY="84.0" prefHeight="25.0" prefWidth="176.0" style="-fx-background-color: #C7B5BF;" />
+      <JFXTextField fx:id="txtSupplierName" layoutX="172.0" layoutY="177.0" prefHeight="25.0" prefWidth="176.0" style="-fx-background-color: #C7B5BF;" />
+      <JFXTextField fx:id="txtEmail" layoutX="172.0" layoutY="132.0" prefHeight="25.0" prefWidth="176.0" style="-fx-background-color: #C7B5BF;" />
+      <JFXTextField fx:id="txtCompany" layoutX="172.0" layoutY="224.0" prefHeight="25.0" prefWidth="176.0" style="-fx-background-color: #C7B5BF;" />
+      <JFXButton layoutX="23.0" layoutY="288.0" onAction="#btnOnActionAdd" prefHeight="25.0" prefWidth="66.0" style="-fx-background-color: #1B0310;" text="Add" textFill="#c7b5bf">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="104.0" layoutY="243.0" onAction="#btnOnActionUpdate" prefHeight="25.0" prefWidth="66.0" style="-fx-background-color: #1B0310;" text="Update" textFill="#c7b5bf">
+      <JFXButton layoutX="105.0" layoutY="288.0" onAction="#btnOnActionUpdate" prefHeight="25.0" prefWidth="66.0" style="-fx-background-color: #1B0310;" text="Update" textFill="#c7b5bf">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="280.0" layoutY="243.0" onAction="#btnOnActionSearch" prefHeight="25.0" prefWidth="66.0" style="-fx-background-color: #1B0310;" text="Search" textFill="#c7b5bf">
+      <JFXButton layoutX="281.0" layoutY="288.0" onAction="#btnOnActionSearch" prefHeight="25.0" prefWidth="66.0" style="-fx-background-color: #1B0310;" text="Search" textFill="#c7b5bf">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="192.0" layoutY="243.0" onAction="#btnOnActionDelete" prefHeight="25.0" prefWidth="66.0" style="-fx-background-color: #1B0310;" text="Delete" textFill="#c7b5bf">
+      <JFXButton layoutX="193.0" layoutY="288.0" onAction="#btnOnActionDelete" prefHeight="25.0" prefWidth="66.0" style="-fx-background-color: #1B0310;" text="Delete" textFill="#c7b5bf">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <TableView fx:id="tblSupplier" layoutX="5.0" layoutY="311.0" prefHeight="177.0" prefWidth="590.0" style="-fx-color: #C7B5BF; -fx-background-color: #C7B5BF;">
+      <TableView fx:id="tblSupplier" layoutX="5.0" layoutY="360.0" prefHeight="177.0" prefWidth="590.0" style="-fx-color: #C7B5BF; -fx-background-color: #C7B5BF;">
         <columns>
           <TableColumn fx:id="colSupplierId" prefWidth="131.0" text="Suplier ID" />
           <TableColumn fx:id="colSuplierName" prefWidth="133.0" text="Suplier Name" />
@@ -71,22 +71,30 @@
             <TableColumn fx:id="colEmail" prefWidth="195.0" text="Email" />
         </columns>
       </TableView>
-      <JFXButton layoutX="38.0" layoutY="506.0" onAction="#btnOnActionReload" prefHeight="25.0" prefWidth="155.0" style="-fx-background-color: #1B0310;" text="Reload" textFill="#c7b5bf">
+      <JFXButton layoutX="72.0" layoutY="545.0" onAction="#btnOnActionReload" prefHeight="25.0" prefWidth="155.0" style="-fx-background-color: #1B0310;" text="Reload" textFill="#c7b5bf">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <ImageView fitHeight="248.0" fitWidth="222.0" layoutX="363.0" layoutY="56.0" pickOnBounds="true">
+      <ImageView fitHeight="243.0" fitWidth="222.0" layoutX="363.0" layoutY="109.0" pickOnBounds="true">
          <image>
             <Image url="@../image/suplier.jpg" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1b0310" height="49.0" layoutY="553.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
-      <Label alignment="CENTER" layoutX="55.0" layoutY="569.0" prefHeight="17.0" prefWidth="513.0" text="© 2024 Clothify" textFill="#c7b5bf">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1b0310" height="49.0" layoutY="577.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
+      <Label alignment="CENTER" layoutX="55.0" layoutY="593.0" prefHeight="17.0" prefWidth="513.0" text="© 2024 Clothify" textFill="#c7b5bf">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <JFXButton fx:id="btnBAck" layoutX="287.0" layoutY="506.0" onAction="#btnOnActionBack" prefHeight="25.0" prefWidth="134.0" text="Back" />
+      <JFXButton fx:id="btnBAck" layoutX="374.0" layoutY="545.0" onAction="#btnOnActionBack" prefHeight="25.0" prefWidth="155.0" style="-fx-background-color: #1B0310;" text="Back" textFill="#c7b5bf">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></JFXButton>
+      <JFXButton fx:id="btnLogOut" layoutX="422.0" layoutY="11.0" onAction="#btnOnActionLogOut" prefHeight="27.0" prefWidth="155.0" style="-fx-background-color: #693953;" text="Log Out" textFill="#c7b5bf">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

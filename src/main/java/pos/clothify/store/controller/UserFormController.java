@@ -38,6 +38,8 @@ import java.util.regex.Pattern;
 
 public class UserFormController implements Initializable {
 
+    @FXML
+    private JFXButton btnLogOut;
 
     @FXML
     private JFXButton btnBack;
@@ -119,10 +121,24 @@ public class UserFormController implements Initializable {
            maxId=0;
        }
         maxId++;
-
-
         txtUserId.setText(Integer.toString(maxId));
 
+        tblUser.getSelectionModel().selectedItemProperty().addListener((observableValue, oldVal, newVal) -> {
+            addValueToText(newVal);
+        });
+
+
+    }
+
+    private void addValueToText(User newVal) {
+        txtUserId.setText(newVal.getUserId());
+        txtFirstName.setText(newVal.getFirstName());
+        txtLastName.setText(newVal.getLastName());
+        txtAddress.setText(newVal.getAddress());
+        txtNIC.setText(newVal.getNic());
+        txtContact.setText(newVal.getContact());
+        txtEmail.setText(newVal.getEmail());
+        combRole.setValue(newVal.getRole());
 
     }
 
@@ -139,6 +155,23 @@ public class UserFormController implements Initializable {
         try {
             FXMLLoader loads = new FXMLLoader(getClass().getResource("/view/AdminDashboardFormController.fxml"));
             loads.setController(new AdminDashboardController());
+            Parent load = loads.load();
+            stageNew.setScene(new Scene(load));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stageNew.show();
+        curruntStage.close();
+    }
+
+    @FXML
+    void btnOnActionLogOut(ActionEvent event) {
+        Stage curruntStage=(Stage) btnLogOut.getScene().getWindow();
+        Stage stageNew=new Stage();
+
+        try {
+            FXMLLoader loads = new FXMLLoader(getClass().getResource("/view/LoginFormController.fxml"));
+            loads.setController(new LoginFormController());
             Parent load = loads.load();
             stageNew.setScene(new Scene(load));
         } catch (IOException e) {
@@ -250,6 +283,9 @@ public class UserFormController implements Initializable {
         if(service.updateUser(user)){
             clear();
             loadTable();
+            Integer maxId = service.findMaxId();
+            maxId++;
+            txtUserId.setText(Integer.toString(maxId));
         }
 
     }

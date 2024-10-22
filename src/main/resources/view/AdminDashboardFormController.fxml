@@ -40,5 +40,15 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </JFXButton>
+      <JFXButton fx:id="btnLogOut" layoutX="451.0" layoutY="12.0" onAction="#btnOnActionLogOut" prefHeight="35.0" prefWidth="135.0" style="-fx-background-color: #693953;" text="Log Out" textFill="#dbb7ca">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnReturn" layoutX="117.0" layoutY="312.0" onAction="#btnOnActionReturn" prefHeight="35.0" prefWidth="366.0" style="-fx-background-color: #290418;" text="Returned Orders" textFill="#dbb7ca">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

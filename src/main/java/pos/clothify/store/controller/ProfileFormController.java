@@ -20,6 +20,7 @@ import pos.clothify.store.service.custom.UserService;
 import pos.clothify.store.util.ServiceType;
 
 import javax.swing.*;
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -36,6 +37,10 @@ public class ProfileFormController implements Initializable {
         this.email=email;
 
     }
+
+
+    @FXML
+    private JFXButton btnLogOut;
 
     @FXML
     private JFXButton btnBack;
@@ -188,6 +193,26 @@ public class ProfileFormController implements Initializable {
         stageNew.show();
         curruntStage.close();
     }
+
+    @FXML
+    void btnOnActionLogOut(ActionEvent event) {
+        Stage curruntStage=(Stage) btnLogOut.getScene().getWindow();
+        Stage stageNew=new Stage();
+
+        try {
+            FXMLLoader loads = new FXMLLoader(getClass().getResource("/view/LoginFormController.fxml"));
+            loads.setController(new LoginFormController());
+            Parent load = loads.load();
+            stageNew.setScene(new Scene(load));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stageNew.show();
+        curruntStage.close();
+    }
+
+
+
 
 
 }

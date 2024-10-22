@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.CheckBox;
 import javafx.stage.Stage;
 import pos.clothify.store.model.Login;
 import pos.clothify.store.service.SuperFactory;
@@ -17,17 +18,23 @@ import pos.clothify.store.service.custom.LoginService;
 import pos.clothify.store.service.custom.UserService;
 import pos.clothify.store.util.ServiceType;
 
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class LoginFormController implements Initializable {
 
+
+
     @FXML
     private JFXPasswordField txtPassword;
 
     @FXML
     private JFXTextField txtUsername;
+
+    @FXML
+    private CheckBox showPassword;
 
 
     @Override
@@ -90,5 +97,18 @@ public class LoginFormController implements Initializable {
 
     }
 
+
+    public void showPassword(javafx.scene.input.MouseEvent mouseEvent) {
+        String password = txtPassword.getText();
+        txtPassword.setText("");
+        txtPassword.setPromptText(password);
+        showPassword.setSelected(true);
+    }
+
+    public void hidePassword(javafx.scene.input.MouseEvent mouseEvent) {
+        String password = txtPassword.getPromptText();
+        txtPassword.setText(password);
+        txtPassword.setPromptText("Password");
+    }
 }
 

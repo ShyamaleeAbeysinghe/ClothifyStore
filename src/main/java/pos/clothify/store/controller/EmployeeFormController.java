@@ -32,6 +32,8 @@ public class EmployeeFormController implements Initializable {
         this.role=role;
         this.email=email;
     }
+    @FXML
+    private JFXButton btnLogOut;
 
     @FXML
     private JFXButton btnBack;
@@ -82,7 +84,20 @@ public class EmployeeFormController implements Initializable {
 
         txtEmployeeId.setText(Integer.toString(maxId));
 
+        tblEmployee.getSelectionModel().selectedItemProperty().addListener((observableValue, oldVal, newVal) -> {
+            if(newVal!=null){
+                addValueToText(newVal);
+            }
+        });
+
     }
+    private void addValueToText(Employee newVal) {
+        txtEmployeeId.setText(newVal.getEmployeeId());
+        txtEmplyeeName.setText(newVal.getEmployeeName());
+        txtEmail.setText(newVal.getEmail());
+        txtCompany.setText(newVal.getCompany());
+    }
+
 
     private void loadTable() {
         EmployeeSrevice service = SuperFactory.getInstance().getServiceType(ServiceType.EMPLOYEE);
@@ -104,6 +119,14 @@ public class EmployeeFormController implements Initializable {
         if(service.addEmployee(employee)){
             clear();
             loadTable();
+            Integer maxId = service.findByEmployeeMaxId();
+            if(maxId==null){
+                maxId=0;
+            }
+            maxId++;
+
+            txtEmployeeId.setText(Integer.toString(maxId));
+
         }
 
 
@@ -163,6 +186,14 @@ public class EmployeeFormController implements Initializable {
         if(service.updateEmployee(employee)){
             clear();
             loadTable();
+
+            Integer maxId = service.findByEmployeeMaxId();
+            if(maxId==null){
+                maxId=0;
+            }
+            maxId++;
+
+            txtEmployeeId.setText(Integer.toString(maxId));
         }
 
     }
@@ -191,6 +222,23 @@ public class EmployeeFormController implements Initializable {
                 throw new RuntimeException(e);
             }
 
+        }
+        stageNew.show();
+        curruntStage.close();
+    }
+
+    @FXML
+    void btnOnActionLogOut(ActionEvent event) {
+        Stage curruntStage=(Stage) btnLogOut.getScene().getWindow();
+        Stage stageNew=new Stage();
+
+        try {
+            FXMLLoader loads = new FXMLLoader(getClass().getResource("/view/LoginFormController.fxml"));
+            loads.setController(new LoginFormController());
+            Parent load = loads.load();
+            stageNew.setScene(new Scene(load));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
         stageNew.show();
         curruntStage.close();

@@ -12,7 +12,7 @@ public class SuperFactory {
     public static SuperFactory getInstance(){
         return instance==null?instance=new SuperFactory():instance;
     }
-    public static <T extends SuperService>T getServiceType(ServiceType type){
+    public <T extends SuperService>T getServiceType(ServiceType type){
         switch (type){
             case USER:return (T)new UserSeviceImpl();
             case ADDORDER:return (T)new AddOrderServiceImpl();
@@ -21,6 +21,7 @@ public class SuperFactory {
             case EMPLOYEE:return (T)new EmployeeServiceImpl();
             case SUPPLIER:return (T)new SupplierServiceImpl();
             case VIEWODER:return (T)new ViewOrderServiceImpl();
+            case RETURN:return (T)new returnItemServiceImpl();
 
         }
         return null;

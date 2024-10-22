@@ -11,7 +11,12 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class AdminDashboardController {
+    @FXML
+    private JFXButton btnReturn;
 
+
+    @FXML
+    private JFXButton btnLogOut;
 
     @FXML
     private JFXButton btnEmployee;
@@ -94,6 +99,40 @@ public class AdminDashboardController {
         currentStage.close();
 
     }
+
+    @FXML
+    void btnOnActionLogOut(ActionEvent event) {
+        Stage curruntStage=(Stage) btnLogOut.getScene().getWindow();
+        Stage stageNew=new Stage();
+
+        try {
+            FXMLLoader loads = new FXMLLoader(getClass().getResource("/view/LoginFormController.fxml"));
+            loads.setController(new LoginFormController());
+            Parent load = loads.load();
+            stageNew.setScene(new Scene(load));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stageNew.show();
+        curruntStage.close();
+    }
+    @FXML
+    void btnOnActionReturn(ActionEvent event) {
+        Stage curruntStage=(Stage) btnReturn.getScene().getWindow();
+        Stage stageNew=new Stage();
+
+        try {
+            FXMLLoader loads = new FXMLLoader(getClass().getResource("/view/ReturnItemFormController.fxml"));
+            loads.setController(new ReturnItemFormController());
+            Parent load = loads.load();
+            stageNew.setScene(new Scene(load));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stageNew.show();
+        curruntStage.close();
+    }
+
 
 }
 
